@@ -27,8 +27,7 @@ export default function FourOhFour() {
             xmlns='http://www.w3.org/2000/svg'
             width='auto'
             height='auto'
-            viewBox='0 0 1074.392 584.231'
-          >
+            viewBox='0 0 1074.392 584.231'>
             <title>page not found</title>
             <ellipse
               cx='540.64346'
@@ -57,21 +56,21 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M1060.74162,579.148h-35.53428V474.50864a20.95586,20.95586,0,0,0-20.95586-20.95586H995.9251a20.95586,20.95586,0,0,0-20.95586,20.95586V579.148H874.73916a11.96327,11.96327,0,0,1-10.57763-17.552L970.24392,360.81572a20.95586,20.95586,0,0,0-9.58037-28.73893l-6.26231-2.9572a20.95586,20.95586,0,0,0-27.42931,9.07L797.59047,580.2222a28.41582,28.41582,0,0,0-3.35584,13.39613v0a28.41583,28.41583,0,0,0,28.41583,28.41583H974.96924v66.16727a25.119,25.119,0,0,0,25.119,25.119h0a25.119,25.119,0,0,0,25.119-25.119V622.0342h35.53428a21.44307,21.44307,0,0,0,21.44307-21.44307v0A21.44307,21.44307,0,0,0,1060.74162,579.148Z'
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M603.0848,313.86637c-85.94407,0-147.651,55.13937-147.651,183.79791,0,145.813,61.70691,184.41057,147.651,184.41057s151.327-42.27352,151.327-184.41057C754.41175,345.72467,689.02887,313.86637,603.0848,313.86637Zm.565,319.80836c-59.52686,0-90.62592-34.92287-90.62592-135.91629,0-89.11185,32.37209-136.10461,91.899-136.10461s91.899,30.86774,91.899,136.10461C696.82174,596.20579,663.17661,633.67473,603.64975,633.67473Z'
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <circle cx='471.14108' cy='18.25044' r='12.90118' fill='#2f2e41' />
             <ellipse
@@ -168,14 +167,14 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M1070.77493,574.6762a20.81252,20.81252,0,1,0,2.7716-39.91524l.52093,10.7122-5.06815-9.18045a20.734,20.734,0,0,0-10.68366,11.72261,20.40847,20.40847,0,0,0-1.19713,5.62986A20.80855,20.80855,0,0,0,1070.77493,574.6762Z'
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M1092.45136,515.47266a20.78819,20.78819,0,0,1,14.97993-13.19764l1.71361,10.18378,3.177-10.69566a20.81,20.81,0,1,1-19.87057,13.70952Z'
@@ -187,7 +186,7 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M1108.04474,625.48885a20.81,20.81,0,0,0,18.419-37.02267l-2.44121,8.21926-1.73105-10.30382a.36183.36183,0,0,0-.053-.0201,20.81113,20.81113,0,1,0-14.1938,39.12733Z'
@@ -199,7 +198,7 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M1086.37782,660.05148a20.80131,20.80131,0,1,0,4.01058-16.29737l9.27267,13.95654-12.66994-7.40768A20.61638,20.61638,0,0,0,1086.37782,660.05148Z'
@@ -211,7 +210,7 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M72.06146,628.13325a13.67421,13.67421,0,1,0,1.821-26.225l.34227,7.03811-3.32987-6.03172a13.62263,13.62263,0,0,0-7.01936,7.702,13.40883,13.40883,0,0,0-.78654,3.69893A13.6716,13.6716,0,0,0,72.06146,628.13325Z'
@@ -223,14 +222,14 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M72.62461,626.32123a13.6742,13.6742,0,1,0,1.821-26.225l.34227,7.03812L71.458,601.10258a13.62262,13.62262,0,0,0-7.01936,7.702,13.40912,13.40912,0,0,0-.78654,3.69892A13.67158,13.67158,0,0,0,72.62461,626.32123Z'
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M86.86641,587.42343a13.65822,13.65822,0,0,1,9.84209-8.67109l1.12587,6.69093,2.08737-7.02725a13.67252,13.67252,0,1,1-13.05533,9.00741Z'
@@ -242,7 +241,7 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M97.11155,659.70607a13.67255,13.67255,0,0,0,12.10164-24.32457l-1.60392,5.4002-1.13733-6.76979a.238.238,0,0,0-.0348-.0132,13.67329,13.67329,0,1,0-9.32559,25.70736Z'
@@ -254,7 +253,7 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M82.876,682.41435a13.66684,13.66684,0,1,0,2.635-10.70767l6.09231,9.16971-8.32438-4.867A13.54535,13.54535,0,0,0,82.876,682.41435Z'
@@ -266,7 +265,7 @@ export default function FourOhFour() {
               transform='translate(-63.054 -157.8845)'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <ellipse
               cx='480.946'
@@ -294,7 +293,7 @@ export default function FourOhFour() {
               ry='22'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <ellipse
               cx='577.446'
@@ -303,7 +302,7 @@ export default function FourOhFour() {
               ry='22'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <ellipse
               cx='533.446'
@@ -312,7 +311,7 @@ export default function FourOhFour() {
               ry='18'
               fill='none'
               stroke='#3f3d56'
-              stroke-miterlimit='10'
+              strokeMiterlimit='10'
             />
             <path
               d='M604,527.2a4.93658,4.93658,0,0,1-1.32,3.392A4.33873,4.33873,0,0,1,599.5,532h-10a4.66433,4.66433,0,0,1-4.5-4.8,4.90458,4.90458,0,0,1,.82-2.74134A47.02,47.02,0,0,1,592.5,524a47.66454,47.66454,0,0,1,11.13,1.28A5.06656,5.06656,0,0,1,604,527.2Z'
@@ -344,8 +343,7 @@ export default function FourOhFour() {
               <Button
                 leftIcon={<ArrowBackIcon />}
                 colorScheme='teal'
-                variant='solid'
-              >
+                variant='solid'>
                 Go back home
               </Button>
             </a>
