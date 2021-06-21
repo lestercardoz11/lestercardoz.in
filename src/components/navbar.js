@@ -24,7 +24,6 @@ import {
   MoonIcon,
   SunIcon,
 } from '@chakra-ui/icons';
-import Logo from './icons/logo';
 import { email, socialMedia } from '@/config';
 import { Icon } from '@/components/icons';
 import { useState } from 'react';
@@ -105,9 +104,15 @@ const Navbar = () => {
                 />
               </SlideFade>
             </Flex>
-            <Box as={Link} href={'/'} w={100}>
+            <Box
+              as={Link}
+              href={'/'}
+              w={100}
+              _hover={{
+                textDecoration: 'none',
+              }}>
               <SlideFade in={!social} reverse={social} offsetY={20}>
-                <Logo color={useColorModeValue('#1A202C', 'white')} />
+                <Icon name={'Logo'} />
               </SlideFade>
             </Box>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10} py={5}>
