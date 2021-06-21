@@ -11,7 +11,7 @@ import { Icon } from '@/components/icons';
 
 const Email = () => (
   <Box
-    position={'absolute'}
+    position={'fixed'}
     bottom={0}
     right={12}
     display={{ base: 'none', md: 'flex' }}>
@@ -51,7 +51,7 @@ const Email = () => (
 
 const SocialLinks = () => (
   <Box
-    position={'absolute'}
+    position={'fixed'}
     bottom={0}
     left={12}
     display={{ base: 'none', md: 'flex' }}>
@@ -80,9 +80,14 @@ const SocialLinks = () => (
               <Box h={5} w={5} my={5} key={i}>
                 <Link
                   href={url}
+                  h={'100%'}
+                  w={'100%'}
                   aria-label={name}
                   target='_blank'
-                  rel='noopener noreferrer'>
+                  rel='noopener noreferrer'
+                  _focus={{
+                    outline: 'none',
+                  }}>
                   <Icon name={name} />
                 </Link>
               </Box>
