@@ -47,7 +47,7 @@ const Summary = () => {
               display={{ base: 'block', lg: 'inline' }}
               w='full'
               bgClip='text'
-              bgGradient='linear(to-l, #7928CA, #FF0080)'
+              bgGradient='linear(to-l, #E15299, #E15299)'
               fontWeight='extrabold'>
               Lester Cardoz
             </Text>
