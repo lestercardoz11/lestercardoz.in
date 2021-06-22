@@ -12,7 +12,7 @@ const Feature = (props) => {
         h={4}
         rounded='full'
         color={useColorModeValue(`${color}.600`, `${color}.100`)}
-        bg={useColorModeValue(`${color}.200`, `${color}.600`)}></Flex>
+        bg={`${color}.400`}></Flex>
       <Flex h={8} ml={4} alignItems='center'>
         <Text
           fontWeight='semibold'
@@ -39,7 +39,7 @@ const Technologies = () => {
             <Box
               rounded={['none', 'lg']}
               shadow={['none', 'md']}
-              bg={useColorModeValue('gray.100', 'gray.700')}>
+              bg={useColorModeValue('gray.100', 'gray.900')}>
               <Flex
                 direction='column'
                 justify='center'
@@ -70,7 +70,7 @@ const Technologies = () => {
             <Box
               rounded={['none', 'lg']}
               shadow={['none', 'md']}
-              bg={useColorModeValue('gray.100', 'gray.700')}>
+              bg={useColorModeValue('gray.100', 'gray.900')}>
               <Flex
                 direction='column'
                 justify='center'
@@ -100,7 +100,7 @@ const Technologies = () => {
             <Box
               rounded={['none', 'lg']}
               shadow={['none', 'md']}
-              bg={useColorModeValue('gray.100', 'gray.700')}>
+              bg={useColorModeValue('gray.100', 'gray.900')}>
               <Flex
                 direction='column'
                 justify='center'
