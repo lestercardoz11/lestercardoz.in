@@ -120,12 +120,16 @@ const Summary = () => {
                   border={'solid 2px transparent'}
                   rounded={'md'}
                   cursor={'pointer'}
-                  _hover={{ border: 'solid 2px #48BB78' }}>
+                  _hover={{ color: '#48BB78' }}>
                   <Flex direction={'row'} align={'center'}>
                     <ListIcon w={6} h={6} as={IoPinOutline} color='green.400' />
                     <Flex direction={'column'} ml={2} fontSize={'md'}>
                       Mumbai
-                      <Text fontSize={'xs'}>India</Text>
+                      <Text
+                        fontSize={'xs'}
+                        color={useColorModeValue('gray.800', 'white')}>
+                        India
+                      </Text>
                     </Flex>
                   </Flex>
                 </ListItem>
@@ -134,7 +138,7 @@ const Summary = () => {
                   border={'solid 2px transparent'}
                   rounded={'md'}
                   cursor={'pointer'}
-                  _hover={{ border: 'solid 2px #48BB78' }}>
+                  _hover={{ color: '#48BB78' }}>
                   <Flex direction={'row'} align={'center'}>
                     <ListIcon
                       w={6}
@@ -144,7 +148,11 @@ const Summary = () => {
                     />
                     <Flex direction={'column'} ml={2} fontSize={'md'}>
                       6:30
-                      <Text fontSize={'xs'}>Geko ft. NSG</Text>
+                      <Text
+                        fontSize={'xs'}
+                        color={useColorModeValue('gray.800', 'white')}>
+                        Geko ft. NSG
+                      </Text>
                     </Flex>
                   </Flex>
                 </ListItem>
@@ -153,7 +161,7 @@ const Summary = () => {
                   border={'solid 2px transparent'}
                   rounded={'md'}
                   cursor={'pointer'}
-                  _hover={{ border: 'solid 2px #48BB78' }}>
+                  _hover={{ color: '#48BB78' }}>
                   <Flex direction={'row'} align={'center'}>
                     <ListIcon
                       w={6}
@@ -163,7 +171,11 @@ const Summary = () => {
                     />
                     <Flex direction={'column'} ml={2} fontSize={'md'}>
                       Psych
-                      <Text fontSize={'xs'}>Sitcom</Text>
+                      <Text
+                        fontSize={'xs'}
+                        color={useColorModeValue('gray.800', 'white')}>
+                        Sitcom
+                      </Text>
                     </Flex>
                   </Flex>
                 </ListItem>

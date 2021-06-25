@@ -4,7 +4,7 @@ import {
   Button,
   Box,
   Text,
-  Link,
+  Link as ChakraLink,
   Flex,
   Popover,
   PopoverTrigger,
@@ -28,6 +28,7 @@ import { email, socialMedia } from '@/config';
 import { Icon } from '@/components/icons';
 import { useState } from 'react';
 import { useRouter } from 'next/router';
+import Link from 'next/link';
 
 const Navbar = () => {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -57,7 +58,7 @@ const Navbar = () => {
               <Stack direction={'row'} spacing={6} align='center'>
                 {socialMedia.map(({ url, name }, i) => (
                   <Box
-                    as={Link}
+                    as={ChakraLink}
                     key={i}
                     href={url}
                     aria-label={name}
@@ -71,7 +72,7 @@ const Navbar = () => {
                   </Box>
                 ))}
                 <Box
-                  as={Link}
+                  as={ChakraLink}
                   href={`mailto:${email}`}
                   w={6}
                   h={6}
@@ -104,17 +105,19 @@ const Navbar = () => {
                 />
               </SlideFade>
             </Flex>
-            <Box
-              as={Link}
-              href={'/'}
-              w={100}
-              _hover={{
-                textDecoration: 'none',
-              }}>
-              <SlideFade in={!social} reverse={social} offsetY={20}>
-                <Icon name={'Logo'} />
-              </SlideFade>
-            </Box>
+            <Link href={'/'}>
+              <Box
+                as={'a'}
+                w={100}
+                cursor='pointer'
+                _hover={{
+                  textDecoration: 'none',
+                }}>
+                <SlideFade in={!social} reverse={social} offsetY={20}>
+                  <Icon name={'Logo'} />
+                </SlideFade>
+              </Box>
+            </Link>
             <Flex display={{ base: 'none', md: 'flex' }} ml={10} py={5}>
               <Stack direction={'row'} spacing={10} align='center'>
                 {navItems.map((navItem) => (
@@ -186,20 +189,26 @@ const DesktopNav = ({ navItem }) => {
     <Box>
       <Popover trigger={'hover'} placement={'bottom-start'}>
         <PopoverTrigger>
-          <Link
-            p={2}
-            href={navItem.url ?? '#'}
-            fontSize={'lg'}
-            fontWeight={500}
-            color={useColorModeValue('gray.600', 'gray.200')}
-            _hover={{
-              textDecoration: 'none',
-            }}
-            borderBottom={
-              router.asPath.includes(navItem.name.toLowerCase()) && '1px'
-            }
-            borderColor={'white'}>
-            {navItem.name}
+          <Link href={navItem.url ?? '#'}>
+            <Box as={'a'}>
+              <Button
+                p={2}
+                fontSize={'lg'}
+                fontWeight={500}
+                bg={'none'}
+                rounded={'none'}
+                color={useColorModeValue('gray.600', 'gray.200')}
+                _hover={{
+                  textDecoration: 'none',
+                  color: '#48BB78',
+                }}
+                borderBottom={
+                  router.asPath.includes(navItem.name.toLowerCase()) && '2px'
+                }
+                borderColor={'#48BB78'}>
+                {navItem.name}
+              </Button>
+            </Box>
           </Link>
         </PopoverTrigger>
       </Popover>
@@ -210,21 +219,22 @@ const DesktopNav = ({ navItem }) => {
 const MobileNav = ({ navItem, onToggle }) => {
   return (
     <Stack spacing={4} onClick={onToggle}>
-      <Flex
-        py={2}
-        as={Link}
-        href={navItem.url ?? '#'}
-        justify={'center'}
-        align={'center'}
-        _hover={{
-          textDecoration: 'none',
-        }}>
-        <Text
-          fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
-          {navItem.name}
-        </Text>
-      </Flex>
+      <Link href={navItem.url ?? '#'}>
+        <Flex
+          py={2}
+          as={'a'}
+          justify={'center'}
+          align={'center'}
+          _hover={{
+            textDecoration: 'none',
+          }}>
+          <Text
+            fontWeight={600}
+            color={useColorModeValue('gray.600', 'gray.200')}>
+            {navItem.name}
+          </Text>
+        </Flex>
+      </Link>
     </Stack>
   );
 };

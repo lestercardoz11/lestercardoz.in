@@ -7,6 +7,7 @@ body {
   -webkit-font-smoothing: antialiased !important;
   -webkit-text-size-adjust: none;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+  overflow-y: scroll;
 }
 
 a {
@@ -16,4 +17,16 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+body::-webkit-scrollbar {
+  width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: #2d3748;
 }
