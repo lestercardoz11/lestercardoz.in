@@ -7,7 +7,9 @@ const Logo = () => (
     p={2}
     bg={useColorModeValue('gray.800', 'white')}
     color={useColorModeValue('white', 'gray.800')}
-    fontWeight={'bold'}
+    fontFamily={'heading'}
+    fontSize={'lg'}
+    fontWeight={'extrabold'}
     letterSpacing={'wider'}
     textTransform={'uppercase'}
     justify={'center'}>

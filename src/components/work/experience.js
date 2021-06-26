@@ -52,78 +52,80 @@ const Feature = ({ name, years, position, type, place, children }) => {
 const Experience = () => {
   return (
     <Box w={'auto'}>
-      <Box>
-        <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
-          <Text mb={2} fontSize='5xl' fontWeight='bold' lineHeight='tight'>
-            Experience
-          </Text>
-        </Box>
-        <Box maxW='7xl' py='20' mx='auto'>
-          <Feature
-            name='Ajackus Consultancy'
-            years='September 2020 - Ongoing'
-            position='Software Developer'
-            type='Full time'
-            place='Mumbai, India'>
-            <List spacing={3}>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Produce clean, well-designed code & detailed specifications.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Troubleshoot, test and maintain the core product software and
-                databases to ensure strong optimization and functionality.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Contribute in all phases of the development lifecycle & follow
-                industry best practices.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Develop and deploy new features to facilitate related procedures
-                and tools.
-              </ListItem>
-            </List>
-          </Feature>
-          <Feature
-            name='Tribus Non-Governmental Organisation'
-            years='October 2019 - March 2020'
-            position='Web Developer'
-            type='Volunteer'
-            place='Pune, India'>
-            <List spacing={3}>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Implemented and deployed a website for non-governmental
-                organization using HTML/CSS, Bootstrap, JavaScript, and Google
-                Cloud Services.
-              </ListItem>
-            </List>
-          </Feature>
-          <Feature
-            name='IMTAC'
-            years='December 2018 - June 2019'
-            position='.NET Developer'
-            type='Internship'
-            place='Muscat, Oman'>
-            <List spacing={3}>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Designed and implemented multi-tier software using the latest
-                technologies, such as ASP.NET, C#, HTML/CSS, jQuery, and SQL
-                Server.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Participated in a full software development life cycle from
-                scoping, analysis, design, and implementation & solutions to
-                meet client needs.
-              </ListItem>
-            </List>
-          </Feature>
-        </Box>
+      <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
+        <Text
+          mb={2}
+          fontSize={{ base: '3xl', md: '5xl' }}
+          fontWeight='bold'
+          lineHeight='tight'>
+          Experience
+        </Text>
+      </Box>
+      <Box maxW='7xl' py='20' mx='auto'>
+        <Feature
+          name='Ajackus Consultancy'
+          years='September 2020 - Ongoing'
+          position='Software Developer'
+          type='Full time'
+          place='Mumbai, India'>
+          <List spacing={3}>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Produce clean, well-designed code & detailed specifications.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Troubleshoot, test and maintain the core product software and
+              databases to ensure strong optimization and functionality.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Contribute in all phases of the development lifecycle & follow
+              industry best practices.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Develop and deploy new features to facilitate related procedures
+              and tools.
+            </ListItem>
+          </List>
+        </Feature>
+        <Feature
+          name='Tribus Non-Governmental Organisation'
+          years='October 2019 - March 2020'
+          position='Web Developer'
+          type='Volunteer'
+          place='Pune, India'>
+          <List spacing={3}>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Implemented and deployed a website for non-governmental
+              organization using HTML/CSS, Bootstrap, JavaScript, and Google
+              Cloud Services.
+            </ListItem>
+          </List>
+        </Feature>
+        <Feature
+          name='IMTAC'
+          years='December 2018 - June 2019'
+          position='.NET Developer'
+          type='Internship'
+          place='Muscat, Oman'>
+          <List spacing={3}>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Designed and implemented multi-tier software using the latest
+              technologies, such as ASP.NET, C#, HTML/CSS, jQuery, and SQL
+              Server.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Participated in a full software development life cycle from
+              scoping, analysis, design, and implementation & solutions to meet
+              client needs.
+            </ListItem>
+          </List>
+        </Feature>
       </Box>
     </Box>
   );

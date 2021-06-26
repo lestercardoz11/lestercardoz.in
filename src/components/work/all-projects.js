@@ -31,7 +31,7 @@ const Feature = ({
     <Box mb={5}>
       <Skeleton isLoaded={!isLoading}>
         <Box
-          w='100%'
+          w={'full'}
           bg={useColorModeValue('gray.100', 'gray.900')}
           rounded='lg'
           p={6}>
@@ -158,79 +158,76 @@ const AllProjects = () => {
       column1.push(filteredProjects[i]);
     }
   }
-  console.log(
-    '🚀 ~ file: all-projects.js ~ line 107 ~ AllProjects ~ column1',
-    column1
-  );
-  console.log(
-    '🚀 ~ file: all-projects.js ~ line 109 ~ AllProjects ~ column2',
-    column2
-  );
-  console.log(
-    '🚀 ~ file: all-projects.js ~ line 111 ~ AllProjects ~ column3',
-    column3
-  );
+
   return (
     <Box w={'auto'}>
-      <Box>
-        <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
-          <Text mb={2} fontSize='5xl' fontWeight='bold' lineHeight='tight'>
-            All Projects
-          </Text>
-        </Box>
-        <Box maxW='7xl' py='20' mx='auto'>
-          {!filteredProjects.length ? (
-            'No projects found.'
-          ) : (
-            <Grid templateColumns='repeat(3, 1fr)' gap={5}>
-              <GridItem colSpan={1}>
-                <Flex direction={'column'}>
-                  {column1.map((project) => (
-                    <Feature
-                      key={project.name}
-                      name={project.name?.replaceAll('-', ' ')}
-                      star_count={project.stars}
-                      code={project.url}
-                      description={project.description}
-                      language={project.language}
-                      homepage={project.homepage}
-                      isLoading={isLoading}></Feature>
-                  ))}
-                </Flex>
-              </GridItem>
-              <GridItem colSpan={1}>
-                <Flex direction={'column'}>
-                  {column3.map((project) => (
-                    <Feature
-                      key={project.name}
-                      name={project.name?.replaceAll('-', ' ')}
-                      star_count={project.stars}
-                      code={project.url}
-                      description={project.description}
-                      language={project.language}
-                      homepage={project.homepage}
-                      isLoading={isLoading}></Feature>
-                  ))}
-                </Flex>
-              </GridItem>
-              <GridItem colSpan={1}>
-                <Flex direction={'column'}>
-                  {column2.map((project) => (
-                    <Feature
-                      key={project.name}
-                      name={project.name?.replaceAll('-', ' ')}
-                      star_count={project.stars}
-                      code={project.url}
-                      description={project.description}
-                      language={project.language}
-                      homepage={project.homepage}
-                      isLoading={isLoading}></Feature>
-                  ))}
-                </Flex>
-              </GridItem>
-            </Grid>
-          )}
-        </Box>
+      <Box w='full' px={[10, , 4]} textAlign='center'>
+        <Text
+          mb={2}
+          fontSize={{ base: '3xl', md: '5xl' }}
+          fontWeight='bold'
+          lineHeight='tight'>
+          All Projects
+        </Text>
+      </Box>
+      <Box w='full' py='20'>
+        {!filteredProjects.length ? (
+          'No projects found.'
+        ) : (
+          <Grid
+            w={'full'}
+            templateColumns={{
+              base: 'repeat(1, 1fr)',
+              lg: 'repeat(3, 1fr)',
+            }}
+            gap={{ base: 3, lg: 5 }}>
+            <GridItem colSpan={1} w={'full'}>
+              <Flex direction={'column'}>
+                {column1.map((project) => (
+                  <Feature
+                    key={project.name}
+                    name={project.name?.replaceAll('-', ' ')}
+                    star_count={project.stars}
+                    code={project.url}
+                    description={project.description}
+                    language={project.language}
+                    homepage={project.homepage}
+                    isLoading={isLoading}></Feature>
+                ))}
+              </Flex>
+            </GridItem>
+            <GridItem colSpan={1}>
+              <Flex direction={'column'}>
+                {column3.map((project) => (
+                  <Feature
+                    key={project.name}
+                    name={project.name?.replaceAll('-', ' ')}
+                    star_count={project.stars}
+                    code={project.url}
+                    description={project.description}
+                    language={project.language}
+                    homepage={project.homepage}
+                    isLoading={isLoading}></Feature>
+                ))}
+              </Flex>
+            </GridItem>
+            <GridItem colSpan={1}>
+              <Flex direction={'column'}>
+                {column2.map((project) => (
+                  <Feature
+                    key={project.name}
+                    name={project.name?.replaceAll('-', ' ')}
+                    star_count={project.stars}
+                    code={project.url}
+                    description={project.description}
+                    language={project.language}
+                    homepage={project.homepage}
+                    isLoading={isLoading}></Feature>
+                ))}
+              </Flex>
+            </GridItem>
+          </Grid>
+        )}
       </Box>
     </Box>
   );

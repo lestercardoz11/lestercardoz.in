@@ -9,6 +9,7 @@ import {
   ListIcon,
   useColorModeValue,
   GridItem,
+  Link,
 } from '@chakra-ui/react';
 import {
   IoDesktopOutline,
@@ -36,7 +37,7 @@ const Summary = () => {
         <Flex direction='column' alignItems='start'>
           <Heading
             mb={6}
-            fontSize={{ base: '4xl', md: '4xl', lg: '5xl' }}
+            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
             fontWeight='bold'
             color={useColorModeValue('brand.600', 'gray.300')}
             lineHeight='shorter'>
@@ -44,7 +45,7 @@ const Summary = () => {
             <br />
             I'm{' '}
             <Text
-              display={{ base: 'block', lg: 'inline' }}
+              display={'inline'}
               w='full'
               bgClip='text'
               bgGradient='linear(to-l, #E15299, #E15299)'
@@ -53,9 +54,9 @@ const Summary = () => {
             </Text>
           </Heading>
           <Text
-            pr={{ base: 0, lg: 16 }}
+            pr={{ base: 0, md: 16 }}
             mb={4}
-            fontSize='lg'
+            fontSize={{ base: 'md', md: 'lg' }}
             color={useColorModeValue('brand.600', 'gray.400')}
             letterSpacing='wider'>
             I'm a software developer who specializes in building and designing
@@ -83,7 +84,7 @@ const Summary = () => {
             maxW={'320px'}
             w={'full'}
             bg={useColorModeValue('gray.100', 'gray.900')}
-            boxShadow={'xl'}
+            shadow={'lg'}
             rounded={'lg'}
             p={6}
             textAlign={'center'}>
@@ -121,17 +122,28 @@ const Summary = () => {
                   rounded={'md'}
                   cursor={'pointer'}
                   _hover={{ color: '#48BB78' }}>
-                  <Flex direction={'row'} align={'center'}>
-                    <ListIcon w={6} h={6} as={IoPinOutline} color='green.400' />
-                    <Flex direction={'column'} ml={2} fontSize={'md'}>
-                      Mumbai
-                      <Text
-                        fontSize={'xs'}
-                        color={useColorModeValue('gray.800', 'white')}>
-                        India
-                      </Text>
+                  <Link
+                    href='https://goo.gl/maps/GChA92K1R4mSGEWH9'
+                    target='_blank'
+                    _hover={{ textDecoration: 'none' }}
+                    _focus={{ outline: 'none' }}>
+                    <Flex direction={'row'} align={'center'}>
+                      <ListIcon
+                        w={6}
+                        h={6}
+                        as={IoPinOutline}
+                        color='green.400'
+                      />
+                      <Flex direction={'column'} ml={2} fontSize={'md'}>
+                        Mumbai
+                        <Text
+                          fontSize={'xs'}
+                          color={useColorModeValue('gray.800', 'white')}>
+                          India
+                        </Text>
+                      </Flex>
                     </Flex>
-                  </Flex>
+                  </Link>
                 </ListItem>
                 <ListItem
                   p={2}
@@ -162,22 +174,29 @@ const Summary = () => {
                   rounded={'md'}
                   cursor={'pointer'}
                   _hover={{ color: '#48BB78' }}>
-                  <Flex direction={'row'} align={'center'}>
-                    <ListIcon
-                      w={6}
-                      h={6}
-                      as={IoDesktopOutline}
-                      color='green.400'
-                    />
-                    <Flex direction={'column'} ml={2} fontSize={'md'}>
-                      Psych
-                      <Text
-                        fontSize={'xs'}
-                        color={useColorModeValue('gray.800', 'white')}>
-                        Sitcom
-                      </Text>
+                  <Link
+                    href='https://www.primevideo.com/detail/0KZY37OYHB13OROH35PXWORGDZ/ref=atv_dp_share_cu_r
+                    '
+                    target='_blank'
+                    _hover={{ textDecoration: 'none' }}
+                    _focus={{ outline: 'none' }}>
+                    <Flex direction={'row'} align={'center'}>
+                      <ListIcon
+                        w={6}
+                        h={6}
+                        as={IoDesktopOutline}
+                        color='green.400'
+                      />
+                      <Flex direction={'column'} ml={2} fontSize={'md'}>
+                        Psych
+                        <Text
+                          fontSize={'xs'}
+                          color={useColorModeValue('gray.800', 'white')}>
+                          Sitcom
+                        </Text>
+                      </Flex>
                     </Flex>
-                  </Flex>
+                  </Link>
                 </ListItem>
               </List>
             </Stack>

@@ -13,17 +13,18 @@ import {
   useDisclosure,
   Collapse,
   IconButton,
+  Icon as ChakraIcon,
   SlideFade,
 } from '@chakra-ui/react';
 import {
   ArrowRightIcon,
   AtSignIcon,
   CloseIcon,
-  EmailIcon,
   HamburgerIcon,
   MoonIcon,
   SunIcon,
 } from '@chakra-ui/icons';
+import { IoMailOutline } from 'react-icons/io5';
 import { email, socialMedia } from '@/config';
 import { Icon } from '@/components/icons';
 import { useState } from 'react';
@@ -52,10 +53,14 @@ const Navbar = () => {
         {social ? (
           socialMedia && (
             <Flex
-              flex={'auto'}
-              display={{ base: 'flex', md: 'none' }}
+              flex={{ base: 3, lg: 'auto' }}
+              display={{ base: 'flex', lg: 'none' }}
               justify='center'>
-              <Stack direction={'row'} spacing={6} align='center'>
+              <Flex
+                w={'full'}
+                direction={'row'}
+                justify='space-evenly'
+                align='center'>
                 {socialMedia.map(({ url, name }, i) => (
                   <Box
                     as={ChakraLink}
@@ -71,24 +76,19 @@ const Navbar = () => {
                     </SlideFade>
                   </Box>
                 ))}
-                <Box
-                  as={ChakraLink}
-                  href={`mailto:${email}`}
-                  w={6}
-                  h={6}
-                  align='flex-start'>
+                <Box as={ChakraLink} href={`mailto:${email}`}>
                   <SlideFade in={social} reverse={!social} offsetY={-20}>
-                    <EmailIcon h={5} w={5} />
+                    <ChakraIcon as={IoMailOutline} w={6} h={6} />
                   </SlideFade>
                 </Box>
-              </Stack>
+              </Flex>
             </Flex>
           )
         ) : (
           <>
             <Flex
-              flex={{ base: 1, md: 'auto' }}
-              display={{ base: 'flex', md: 'none' }}>
+              flex={{ base: 1, lg: 'auto' }}
+              display={{ base: 'flex', lg: 'none' }}>
               <SlideFade in={!social} reverse={social} offsetY={20}>
                 <IconButton
                   onClick={onToggle}
@@ -113,12 +113,10 @@ const Navbar = () => {
                 _hover={{
                   textDecoration: 'none',
                 }}>
-                <SlideFade in={!social} reverse={social} offsetY={20}>
-                  <Icon name={'Logo'} />
-                </SlideFade>
+                <Icon name={'Logo'} />
               </Box>
             </Link>
-            <Flex display={{ base: 'none', md: 'flex' }} ml={10} py={5}>
+            <Flex display={{ base: 'none', lg: 'flex' }} ml={10} py={5}>
               <Stack direction={'row'} spacing={10} align='center'>
                 {navItems.map((navItem) => (
                   <DesktopNav navItem={navItem} key={navItem.name} />
@@ -131,9 +129,9 @@ const Navbar = () => {
           </>
         )}
         <Flex
-          flex={{ base: 1, md: 'auto' }}
+          flex={{ base: 1, lg: 'auto' }}
           justifyContent={'flex-end'}
-          display={{ base: 'flex', md: 'none' }}>
+          display={{ base: 'flex', lg: 'none' }}>
           <IconButton
             onClick={onToggleSocials}
             icon={
@@ -149,7 +147,7 @@ const Navbar = () => {
         <Stack
           bg={useColorModeValue('white', 'gray.800')}
           p={4}
-          display={{ md: 'none' }}
+          display={{ lg: 'none' }}
           align={'center'}>
           {navItems.map((navItem) => (
             <MobileNav
@@ -160,21 +158,14 @@ const Navbar = () => {
           ))}
           <Stack spacing={4}>
             <Flex
-              justify={'space-between'}
+              justify={'center'}
               align={'center'}
               _hover={{
                 textDecoration: 'none',
               }}>
-              <Box>
-                <Button mx='2'>
-                  <ArrowRightIcon />
-                </Button>
-              </Box>
-              <Box>
-                <Button onClick={toggleColorMode} mx='2'>
-                  {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
-                </Button>
-              </Box>
+              <Button w={'50%'} onClick={toggleColorMode} mx='2'>
+                {colorMode === 'light' ? <MoonIcon /> : <SunIcon />}
+              </Button>
             </Flex>
           </Stack>
         </Stack>
@@ -201,6 +192,9 @@ const DesktopNav = ({ navItem }) => {
                 _hover={{
                   textDecoration: 'none',
                   color: '#48BB78',
+                }}
+                _focus={{
+                  outline: 'none',
                 }}
                 borderBottom={
                   router.asPath.includes(navItem.name.toLowerCase()) && '2px'

@@ -28,17 +28,21 @@ const Feature = (props) => {
 const Technologies = () => {
   return (
     <Box my={10} w={'auto'}>
-      <Box py='10'>
+      <Box pt='10'>
         <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
-          <Text mb={2} fontSize='5xl' fontWeight='bold' lineHeight='tight'>
+          <Text
+            mb={2}
+            fontSize={{ base: '3xl', md: '5xl' }}
+            fontWeight='bold'
+            lineHeight='tight'>
             Technologies
           </Text>
         </Box>
-        <Box maxW='7xl' py='20' mx='auto'>
-          <SimpleGrid columns={[1, , , 3]} gap={[16, 8]}>
+        <Box w='full' py='20' mx='auto'>
+          <SimpleGrid columns={{ base: 1, md: 3 }} gap={[16, 8]}>
             <Box
-              rounded={['none', 'lg']}
-              shadow={['none', 'md']}
+              rounded={'lg'}
+              shadow={'md'}
               bg={useColorModeValue('gray.100', 'gray.900')}>
               <Flex
                 direction='column'
@@ -49,7 +53,7 @@ const Technologies = () => {
                 borderColor={useColorModeValue('gray.200', 'gray.600')}>
                 <Text
                   mb={1}
-                  fontSize='xl'
+                  fontSize={{ base: 'sm', lg: 'xl' }}
                   fontWeight='bold'
                   letterSpacing='widest'
                   textTransform='uppercase'
@@ -68,8 +72,8 @@ const Technologies = () => {
             </Box>
 
             <Box
-              rounded={['none', 'lg']}
-              shadow={['none', 'md']}
+              rounded={'lg'}
+              shadow={'md'}
               bg={useColorModeValue('gray.100', 'gray.900')}>
               <Flex
                 direction='column'
@@ -80,7 +84,7 @@ const Technologies = () => {
                 borderColor={useColorModeValue('gray.200', 'gray.600')}>
                 <Text
                   mb={1}
-                  fontSize='xl'
+                  fontSize={{ base: 'sm', lg: 'xl' }}
                   fontWeight='bold'
                   letterSpacing='widest'
                   textTransform='uppercase'
@@ -98,8 +102,8 @@ const Technologies = () => {
             </Box>
 
             <Box
-              rounded={['none', 'lg']}
-              shadow={['none', 'md']}
+              rounded={'lg'}
+              shadow={'md'}
               bg={useColorModeValue('gray.100', 'gray.900')}>
               <Flex
                 direction='column'
@@ -110,7 +114,7 @@ const Technologies = () => {
                 borderColor={useColorModeValue('gray.200', 'gray.600')}>
                 <Text
                   mb={1}
-                  fontSize='xl'
+                  fontSize={{ base: 'sm', lg: 'xl' }}
                   fontWeight='bold'
                   letterSpacing='widest'
                   textTransform='uppercase'

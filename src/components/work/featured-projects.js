@@ -36,7 +36,7 @@ const Feature = ({ title, href, languages, children }) => {
           bg={useColorModeValue('gray.100', 'gray.900')}
           rounded={'lg'}
           p={6}>
-          <Stack>
+          <Stack w={'full'}>
             <Flex justify='space-between'>
               <Heading as='h4' size='md' fontWeight='bold' mb={2}>
                 {title}
@@ -46,7 +46,11 @@ const Feature = ({ title, href, languages, children }) => {
             <Text color={useColorModeValue('gray.600', 'gray.100')}>
               {children}
             </Text>
-            <Flex justifyContent={'flex-start'} pt={3}>
+            <Flex
+              w={'full'}
+              justifyContent={'flex-start'}
+              pt={3}
+              flexWrap='wrap'>
               {languages.map((language, index) => (
                 <Badge
                   key={index}
@@ -69,11 +73,15 @@ const FeaturedProjects = () => {
     <Box w={'auto'}>
       <Box>
         <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
-          <Text mb={2} fontSize='5xl' fontWeight='bold' lineHeight='tight'>
+          <Text
+            mb={2}
+            fontSize={{ base: '3xl', md: '5xl' }}
+            fontWeight='bold'
+            lineHeight='tight'>
             Featured Projects
           </Text>
         </Box>
-        <Box maxW='7xl' py='20' mx='auto'>
+        <Box w='full' py='20' mx='auto'>
           <Feature
             title='Safe Travel Barometer'
             href='https://dashboard.safetravelbarometer.com/'
