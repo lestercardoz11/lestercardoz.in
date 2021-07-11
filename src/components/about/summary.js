@@ -10,14 +10,40 @@ import {
   useColorModeValue,
   GridItem,
   Link,
+  Code,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  SkeletonCircle,
+  SkeletonText,
+  Skeleton,
+  HStack,
 } from '@chakra-ui/react';
 import {
   IoDesktopOutline,
   IoMusicalNotesOutline,
   IoPinOutline,
 } from 'react-icons/io5';
+import useSWR from 'swr';
+import fetcher from '../../lib/fetcher';
 
 const Summary = () => {
+  const { data, isLoading, error } = useSWR('/api/now-playing', fetcher);
+
+  if (error)
+    return (
+      <div style={{ width: '100%' }}>
+        <div style={{ width: '100%' }}>
+          <Alert status='error' variant='top-accent'>
+            <AlertIcon />
+            <AlertTitle mr={2}>
+              Please check your internet connection.
+            </AlertTitle>
+          </Alert>
+        </div>
+      </div>
+    );
+
   return (
     <SimpleGrid
       columns={{ base: 1, md: 5 }}
@@ -60,21 +86,53 @@ const Summary = () => {
             color={useColorModeValue('brand.600', 'gray.400')}
             letterSpacing='wider'>
             I'm a software developer who specializes in building and designing
-            exceptional digital experiences. I work at Ajackus as a Software
-            Developer.
+            exceptional digital experiences. I work at{' '}
+            <Link
+              href='https://ajackus.com/'
+              target='_blank'
+              px={1}
+              textDecoration={'none'}
+              borderBottom={'.125em solid #27a9e1'}
+              boxShadow={'inset 0 -0.125em 0 #27a9e1'}
+              transition={
+                'box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1)'
+              }
+              _hover={{
+                color: 'white',
+                boxShadow: 'inset 0 -1.125em 0 #27a9e1',
+              }}
+              _focus={{
+                outline: 'none',
+                background: '#27a9e1',
+                color: '#fff',
+                boxShadow: '8px 8px 24px rgba(0, 0, 0, 0.2)',
+              }}>
+              Ajackus
+            </Link>{' '}
+            as a Software Developer.
             <br />
             <br />
             I’m a fast learner. I love to learn new programming languages and
             paradigms to build high-quality software with them.
             <br />
             <br />
-            I’m currently coding in Angular, TypeScript, and Node.js, but I’d
-            love to learn other programming languages to write programs in. In
-            the past years, I’ve also had the opportunity to code in PHP, Ruby,
-            Python, and other languages.
+            I’m currently coding in <Code colorScheme='red'>Angular</Code>,{' '}
+            <Code colorScheme='purple'>TypeScript</Code>,{' '}
+            <Code colorScheme='blue'>Java</Code> and{' '}
+            <Code colorScheme='green'>Spring</Code> but I’d love to learn other
+            programming languages to write programs in. In the past years, I’ve
+            also had the opportunity to code in{' '}
+            <Code colorScheme='red'>PHP</Code>,{' '}
+            <Code colorScheme='blue'>C#</Code>,{' '}
+            <Code colorScheme='green'>Java</Code>,{' '}
+            <Code colorScheme='purple'>Python</Code>, and other languages.
             <br />
-            <br />I also like to write frontend applications using React,
-            Next.js, SASS, or just vanilla JS and CSS.
+            <br />I also like to write frontend applications using{' '}
+            <Code colorScheme='purple'>React</Code>,{' '}
+            <Code colorScheme='blue'>Next.js</Code>,{' '}
+            <Code colorScheme='pink'>SASS</Code>, or just{' '}
+            <Code colorScheme='green'>Vanilla JS</Code> and{' '}
+            <Code colorScheme='blue'>CSS</Code>.
           </Text>
         </Flex>
       </GridItem>
@@ -115,93 +173,129 @@ const Summary = () => {
                 textTransform='uppercase'>
                 Currently
               </Text>
-              <List spacing={3} w={'full'}>
-                <ListItem
-                  p={2}
-                  border={'solid 2px transparent'}
-                  rounded={'md'}
-                  cursor={'pointer'}
-                  _hover={{ color: '#48BB78' }}>
-                  <Link
-                    href='https://goo.gl/maps/GChA92K1R4mSGEWH9'
-                    target='_blank'
-                    _hover={{ textDecoration: 'none' }}
-                    _focus={{ outline: 'none' }}>
-                    <Flex direction={'row'} align={'center'}>
-                      <ListIcon
-                        w={6}
-                        h={6}
-                        as={IoPinOutline}
-                        color='green.400'
-                      />
-                      <Flex direction={'column'} ml={2} fontSize={'md'}>
-                        Mumbai
-                        <Text
-                          fontSize={'xs'}
-                          color={useColorModeValue('gray.800', 'white')}>
-                          India
-                        </Text>
+              {data && !isLoading ? (
+                <List spacing={3} w={'full'}>
+                  <ListItem
+                    p={2}
+                    border={'solid 2px transparent'}
+                    rounded={'md'}
+                    cursor={'pointer'}
+                    _hover={{ color: '#48BB78' }}>
+                    <Link
+                      href='https://goo.gl/maps/GChA92K1R4mSGEWH9'
+                      target='_blank'
+                      _hover={{ textDecoration: 'none' }}
+                      _focus={{ outline: 'none' }}>
+                      <Flex direction={'row'} align={'center'}>
+                        <ListIcon
+                          w={6}
+                          h={6}
+                          as={IoPinOutline}
+                          color='green.400'
+                        />
+                        <Flex direction={'column'} ml={2} fontSize={'md'}>
+                          Mumbai
+                          <Text
+                            fontSize={'xs'}
+                            color={useColorModeValue('gray.800', 'white')}>
+                            India
+                          </Text>
+                        </Flex>
                       </Flex>
-                    </Flex>
-                  </Link>
-                </ListItem>
-                <ListItem
-                  p={2}
-                  border={'solid 2px transparent'}
-                  rounded={'md'}
-                  cursor={'pointer'}
-                  _hover={{ color: '#48BB78' }}>
-                  <Flex direction={'row'} align={'center'}>
-                    <ListIcon
-                      w={6}
-                      h={6}
-                      as={IoMusicalNotesOutline}
-                      color='green.400'
-                    />
-                    <Flex direction={'column'} ml={2} fontSize={'md'}>
-                      6:30
-                      <Text
-                        fontSize={'xs'}
-                        color={useColorModeValue('gray.800', 'white')}>
-                        Geko ft. NSG
-                      </Text>
-                    </Flex>
-                  </Flex>
-                </ListItem>
-                <ListItem
-                  p={2}
-                  border={'solid 2px transparent'}
-                  rounded={'md'}
-                  cursor={'pointer'}
-                  _hover={{ color: '#48BB78' }}>
-                  <Link
-                    href='https://www.primevideo.com/detail/0KZY37OYHB13OROH35PXWORGDZ/ref=atv_dp_share_cu_r
+                    </Link>
+                  </ListItem>
+                  <ListItem
+                    p={2}
+                    border={'solid 2px transparent'}
+                    rounded={'md'}
+                    cursor={'pointer'}
+                    _hover={{ color: '#48BB78' }}>
+                    <Link
+                      href={
+                        data.songUrl
+                          ? data.songUrl
+                          : 'https://open.spotify.com/user/52yoxfcpct4xwp7ws29i3woda?si=ykjWFU_zQ4mv_Vqw2mHY6g&utm_source=whatsapp&dl_branch=1'
+                      }
+                      target='_blank'
+                      _hover={{ textDecoration: 'none' }}
+                      _focus={{ outline: 'none' }}>
+                      <Flex direction={'row'} align={'center'}>
+                        <ListIcon
+                          w={6}
+                          h={6}
+                          as={IoMusicalNotesOutline}
+                          color='green.400'
+                        />
+                        <Flex direction={'column'} ml={2} fontSize={'md'}>
+                          {data.title ? data.title : 'Not Playing'}
+                          <Text
+                            fontSize={'xs'}
+                            color={useColorModeValue('gray.800', 'white')}>
+                            {data.artist ? data.artist : 'Spotify'}
+                          </Text>
+                        </Flex>
+                      </Flex>
+                    </Link>
+                  </ListItem>
+                  <ListItem
+                    p={2}
+                    border={'solid 2px transparent'}
+                    rounded={'md'}
+                    cursor={'pointer'}
+                    _hover={{ color: '#48BB78' }}>
+                    <Link
+                      href='https://www.primevideo.com/detail/0KZY37OYHB13OROH35PXWORGDZ/ref=atv_dp_share_cu_r
                     '
-                    target='_blank'
-                    _hover={{ textDecoration: 'none' }}
-                    _focus={{ outline: 'none' }}>
-                    <Flex direction={'row'} align={'center'}>
-                      <ListIcon
-                        w={6}
-                        h={6}
-                        as={IoDesktopOutline}
-                        color='green.400'
-                      />
-                      <Flex direction={'column'} ml={2} fontSize={'md'}>
-                        Psych
-                        <Text
-                          fontSize={'xs'}
-                          color={useColorModeValue('gray.800', 'white')}>
-                          Sitcom
-                        </Text>
+                      target='_blank'
+                      _hover={{ textDecoration: 'none' }}
+                      _focus={{ outline: 'none' }}>
+                      <Flex direction={'row'} align={'center'}>
+                        <ListIcon
+                          w={6}
+                          h={6}
+                          as={IoDesktopOutline}
+                          color='green.400'
+                        />
+                        <Flex direction={'column'} ml={2} fontSize={'md'}>
+                          Psych
+                          <Text
+                            fontSize={'xs'}
+                            color={useColorModeValue('gray.800', 'white')}>
+                            Sitcom
+                          </Text>
+                        </Flex>
                       </Flex>
-                    </Flex>
-                  </Link>
-                </ListItem>
-              </List>
+                    </Link>
+                  </ListItem>
+                </List>
+              ) : (
+                <Flex direction={'column'} w={'full'}>
+                  <Box py='2' my='2'>
+                    <Stack>
+                      <Skeleton height='30px' />
+                      <Skeleton height='10px' />
+                    </Stack>
+                  </Box>
+                  <Box py='2' my='2'>
+                    <Stack>
+                      <Skeleton height='30px' />
+                      <Skeleton height='10px' />
+                    </Stack>
+                  </Box>
+                  <Box py='2' my='2'>
+                    <Stack>
+                      <Skeleton height='30px' />
+                      <Skeleton height='10px' />
+                    </Stack>
+                  </Box>
+                </Flex>
+              )}
             </Stack>
 
             <Button
+              as={Link}
+              href='resume.pdf'
+              target='_blank'
               w={'full'}
               mt={8}
               bg={useColorModeValue('gray.300', 'gray.700')}
@@ -209,7 +303,9 @@ const Summary = () => {
               rounded={'md'}
               _hover={{
                 bg: useColorModeValue('gray.200', 'gray.800'),
-              }}>
+                textDecoration: 'none',
+              }}
+              _focus={{ outline: 'none' }}>
               Resume
             </Button>
           </Box>
