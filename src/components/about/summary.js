@@ -116,9 +116,9 @@ const Summary = () => {
             I’m currently coding in <Code colorScheme='red'>Angular</Code>,{' '}
             <Code colorScheme='purple'>TypeScript</Code>,{' '}
             <Code colorScheme='blue'>Java</Code> and{' '}
-            <Code colorScheme='green'>Spring</Code> but I’d love to learn other
-            programming languages to write programs in. In the past years, I’ve
-            also had the opportunity to code in{' '}
+            <Code colorScheme='green'>Spring</Code> but I love to learn other
+            programming languages to write programs in as well. In the past
+            years, I’ve also had the opportunity to code in{' '}
             <Code colorScheme='red'>PHP</Code>,{' '}
             <Code colorScheme='blue'>C#</Code>,{' '}
             <Code colorScheme='green'>Java</Code>,{' '}
