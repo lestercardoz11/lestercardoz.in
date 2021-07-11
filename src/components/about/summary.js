@@ -14,10 +14,7 @@ import {
   Alert,
   AlertIcon,
   AlertTitle,
-  SkeletonCircle,
-  SkeletonText,
   Skeleton,
-  HStack,
 } from '@chakra-ui/react';
 import {
   IoDesktopOutline,
