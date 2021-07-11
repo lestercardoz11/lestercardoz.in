@@ -72,7 +72,7 @@ const FeaturedProjects = () => {
   return (
     <Box w={'auto'}>
       <Box>
-        <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
+        <Box w='full' px={{ base: 10, lg: 4 }} mx='auto' textAlign='center'>
           <Text
             mb={2}
             fontSize={{ base: '3xl', md: '5xl' }}

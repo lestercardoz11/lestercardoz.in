@@ -52,7 +52,7 @@ const Feature = ({ name, years, position, type, place, children }) => {
 const Experience = () => {
   return (
     <Box w={'auto'}>
-      <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
+      <Box w='full' px={{ base: 10, lg: 4 }} mx='auto' textAlign='center'>
         <Text
           mb={2}
           fontSize={{ base: '3xl', md: '5xl' }}

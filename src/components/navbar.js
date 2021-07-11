@@ -1,4 +1,4 @@
-import { navItems } from '@/config';
+import { navItems, email, socialMedia } from '@/config';
 import {
   useColorMode,
   Button,
@@ -17,7 +17,6 @@ import {
   SlideFade,
 } from '@chakra-ui/react';
 import {
-  ArrowRightIcon,
   AtSignIcon,
   CloseIcon,
   HamburgerIcon,
@@ -25,7 +24,6 @@ import {
   SunIcon,
 } from '@chakra-ui/icons';
 import { IoMailOutline } from 'react-icons/io5';
-import { email, socialMedia } from '@/config';
 import { Icon } from '@/components/icons';
 import { useState } from 'react';
 import { useRouter } from 'next/router';

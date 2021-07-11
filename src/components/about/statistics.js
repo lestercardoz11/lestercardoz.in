@@ -82,7 +82,7 @@ const Statistics = () => {
   if (!data)
     return (
       <Box w={'auto'}>
-        <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
+        <Box w='full' px={{ base: 10, lg: 4 }} mx='auto' textAlign='center'>
           <Text mb={2} fontSize='5xl' fontWeight='bold' lineHeight='tight'>
             All Projects
           </Text>
@@ -118,7 +118,7 @@ const Statistics = () => {
   return (
     <Box my={10} w={'auto'}>
       <Box pt='10'>
-        <Box w='full' px={[10, , 4]} mx='auto' textAlign='center'>
+        <Box w='full' px={{ base: 10, lg: 4 }} mx='auto' textAlign='center'>
           <Text
             mb={2}
             fontSize={{ base: '3xl', md: '5xl' }}
