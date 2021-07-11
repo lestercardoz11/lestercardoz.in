@@ -157,7 +157,7 @@ const Summary = () => {
               Lester Cardoz
             </Heading>
             <Text fontWeight={600} color={'gray.500'} mb={4}>
-              Software Developer
+              Software Engineer
             </Text>
 
             <Stack
