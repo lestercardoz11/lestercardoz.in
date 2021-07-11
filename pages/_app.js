@@ -1,6 +1,10 @@
 import '../styles/globals.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head';
+import { DefaultSeo } from 'next-seo';
+
+// import your default seo configuration
+import SEO from '@/lib/next-seo.config';
 
 function MyApp({ Component, pageProps }) {
   return (
@@ -27,6 +31,7 @@ function MyApp({ Component, pageProps }) {
         />
         <link rel='manifest' href='/site.webmanifest' />
       </Head>
+      <DefaultSeo {...SEO} />
       <Component {...pageProps} />
     </ChakraProvider>
   );
