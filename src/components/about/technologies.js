@@ -98,6 +98,7 @@ const Technologies = () => {
                 <Feature color='pink'>ASP.NET</Feature>
                 <Feature color='red'>C#</Feature>
                 <Feature color='cyan'>Java</Feature>
+                <Feature color='green'>Spring</Feature>
               </Stack>
             </Box>
 

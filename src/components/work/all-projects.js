@@ -13,6 +13,9 @@ import {
   SimpleGrid,
   Stack,
   Button,
+  Alert,
+  AlertIcon,
+  AlertTitle,
 } from '@chakra-ui/react';
 import { StarIcon } from '@chakra-ui/icons';
 import Link from 'next/link';
@@ -112,7 +115,10 @@ const AllProjects = () => {
   if (error)
     return (
       <div style={{ width: '100%' }}>
-        Failed to load projects! Please check your internet connnection.
+        <Alert status='error' variant='top-accent'>
+          <AlertIcon />
+          <AlertTitle mr={2}>Please check your internet connection.</AlertTitle>
+        </Alert>
       </div>
     );
   if (!data)

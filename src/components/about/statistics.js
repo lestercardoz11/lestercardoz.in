@@ -2,40 +2,67 @@ import { Box, Flex, Stack, SimpleGrid } from '@chakra-ui/layout';
 import {
   Text,
   useColorModeValue,
-  Stat,
-  StatLabel,
   Skeleton,
-  StatNumber,
   Divider,
+  Alert,
+  AlertIcon,
+  AlertTitle,
+  Icon,
 } from '@chakra-ui/react';
 import useSWR from 'swr';
 import fetcher from '../../lib/fetcher';
+import { RiUser6Line, RiGitRepositoryFill, RiStarFill } from 'react-icons/ri';
 
 const Feature = (props) => {
-  const { title, stat, isLoading } = props;
+  const { title, tech, icon, color, stat, isLoading } = props;
   return (
     <Skeleton isLoaded={!isLoading}>
-      <Stat
-        px={6}
-        py={'5'}
+      <Box
+        px={2}
         bg={useColorModeValue('gray.100', 'gray.900')}
+        color={useColorModeValue('gray.600', 'gray.400')}
         shadow={'md'}
         rounded={'lg'}>
-        <Box w={'full'}>
-          <StatLabel
+        <Box p={2} w={'full'}>
+          <Flex
+            direction={'row'}
+            p={2}
             fontSize={{ base: 'md', md: 'lg' }}
-            fontWeight={'medium'}
-            isTruncated>
-            {title}
-          </StatLabel>
-          <Divider py={1} />
-          <StatNumber
-            fontSize={{ base: '2xl', md: '3xl' }}
             fontWeight={'medium'}>
-            {stat}
-          </StatNumber>
+            <Box w={'35%'}>
+              <Flex
+                w={14}
+                h={14}
+                bg={`${color}.500`}
+                rounded={'full'}
+                justify={'center'}
+                align={'center'}>
+                <Icon as={icon} w={6} h={6} color='white' />
+              </Flex>
+            </Box>
+            <Flex direction={'column'} w={'65%'}>
+              <Box textAlign={'end'} fontSize={'sm'} letterSpacing={'wider'}>
+                {title}
+              </Box>
+              <Box
+                textAlign={'end'}
+                fontSize={'3xl'}
+                color={useColorModeValue('gray.800', 'white')}>
+                {stat}
+              </Box>
+            </Flex>
+          </Flex>
+          <Divider py={1} />
+          <Box
+            p={2}
+            fontSize={'sm'}
+            fontWeight={'medium'}
+            letterSpacing={'widest'}
+            textTransform={'uppercase'}>
+            {tech}
+          </Box>
         </Box>
-      </Stat>
+      </Box>
     </Skeleton>
   );
 };
@@ -46,7 +73,10 @@ const Statistics = () => {
   if (error)
     return (
       <div style={{ width: '100%' }}>
-        Please check your internet connnection.
+        <Alert status='error' variant='top-accent'>
+          <AlertIcon />
+          <AlertTitle mr={2}>Please check your internet connection.</AlertTitle>
+        </Alert>
       </div>
     );
   if (!data)
@@ -100,18 +130,27 @@ const Statistics = () => {
         <Box w='full' py={20}>
           <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
             <Feature
-              title={'Github Followers'}
+              title={'Followers'}
+              tech={'Github'}
               stat={githubFollowers}
+              icon={RiUser6Line}
+              color={'pink'}
               isLoading={isLoading}
             />
             <Feature
-              title={'Github Repos'}
+              title={'Repositories'}
+              tech={'Github'}
               stat={githubRepos}
+              icon={RiGitRepositoryFill}
+              color={'purple'}
               isLoading={isLoading}
             />
             <Feature
-              title={'Github Stars'}
+              title={'Stars'}
+              tech={'Github'}
               stat={githubStars}
+              icon={RiStarFill}
+              color={'blue'}
               isLoading={isLoading}
             />
           </SimpleGrid>

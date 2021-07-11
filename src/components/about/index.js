@@ -4,6 +4,7 @@ import Summary from './summary';
 import Statistics from './statistics';
 import Footer from '../footer';
 import { SlideFade } from '@chakra-ui/react';
+import TechnologyStack from './tech-stack';
 
 const Main = () => {
   return (
@@ -12,6 +13,7 @@ const Main = () => {
         <Summary />
         <Technologies />
         <Statistics />
+        <TechnologyStack />
         <Footer />
       </Box>
     </SlideFade>
