@@ -83,6 +83,25 @@ const FeaturedProjects = () => {
         </Box>
         <Box w='full' py='20' mx='auto'>
           <Feature
+            title='Bearing Fault Detection Using Comparative Analysis of Random Forest, ANN, and Autoencoder Methods'
+            href='https://link.springer.com/chapter/10.1007/978-981-16-1089-9_14'
+            languages={['machine learning', 'python', 'jupyter notebook']}>
+            <List spacing={3}>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                The motive of this study is to reduce wastage of execution time
+                and the annual expenditure loss due to missed alarms and failure
+                to extract actual data from noise.
+              </ListItem>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                The main intent of this paper is to assess the efficiency of
+                Random Forest classification, Artificial Neural Networks and
+                Autoencoder on bearing fault diagnosis.
+              </ListItem>
+            </List>
+          </Feature>
+          <Feature
             title='Safe Travel Barometer'
             href='https://dashboard.safetravelbarometer.com/'
             languages={[
