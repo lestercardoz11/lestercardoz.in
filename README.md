@@ -1,6 +1,10 @@
 <h1 align="center">
-  Lester Cardoz
+  Lester Cardoz - v2
 </h1>
+<p align="center">
+  Previous iteration:
+  <a href="https://github.com/lestercardoz11/lestercardoz11.github.io" target="_blank">v1</a>
+</p>
 <p align="center">
   <img alt="next.js" src="https://img.shields.io/badge/next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white" />
   <img alt="chakra ui" src="https://img.shields.io/badge/Chakra--UI-319795?style=for-the-badge&logo=chakra-ui&logoColor=white" />
