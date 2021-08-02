@@ -24,8 +24,24 @@ import {
 import useSWR from 'swr';
 import fetcher from '../../lib/fetcher';
 
+const getRecentlyPlayed = () => {
+  const { data, error } = useSWR('/api/recently-played', fetcher);
+
+  if (error) {
+    return {
+      recentlyPlayed: null,
+    };
+  }
+
+  return {
+    recentlyPlayed: data,
+  };
+};
+
 const Summary = () => {
   const { data, isLoading, error } = useSWR('/api/now-playing', fetcher);
+
+  const { recentlyPlayed } = getRecentlyPlayed();
 
   if (error)
     return (
@@ -82,7 +98,7 @@ const Summary = () => {
             fontSize={{ base: 'md', md: 'lg' }}
             color={useColorModeValue('brand.600', 'gray.400')}
             letterSpacing='wider'>
-            I'm a software developer who specializes in building and designing
+            I'm a software engineer who specializes in building and designing
             exceptional digital experiences. I work at{' '}
             <Link
               href='https://ajackus.com/'
@@ -106,7 +122,7 @@ const Summary = () => {
               }}>
               Ajackus
             </Link>{' '}
-            as a Software Developer.
+            as an Associate Software Engineer.
             <br />
             <br />
             I’m a fast learner. I love to learn new programming languages and
@@ -170,7 +186,7 @@ const Summary = () => {
                 textTransform='uppercase'>
                 Currently
               </Text>
-              {data && !isLoading ? (
+              {data && recentlyPlayed && !isLoading ? (
                 <List spacing={3} w={'full'}>
                   <ListItem
                     p={2}
@@ -209,9 +225,7 @@ const Summary = () => {
                     _hover={{ color: '#48BB78' }}>
                     <Link
                       href={
-                        data.songUrl
-                          ? data.songUrl
-                          : 'https://open.spotify.com/user/52yoxfcpct4xwp7ws29i3woda?si=ykjWFU_zQ4mv_Vqw2mHY6g&utm_source=whatsapp&dl_branch=1'
+                        data.songUrl ? data.songUrl : recentlyPlayed.songUrl
                       }
                       target='_blank'
                       _hover={{ textDecoration: 'none' }}
@@ -224,11 +238,11 @@ const Summary = () => {
                           color='green.400'
                         />
                         <Flex direction={'column'} ml={2} fontSize={'md'}>
-                          {data.title ? data.title : 'Not Playing'}
+                          {data.title ? data.title : recentlyPlayed.title}
                           <Text
                             fontSize={'xs'}
                             color={useColorModeValue('gray.800', 'white')}>
-                            {data.artist ? data.artist : 'Spotify'}
+                            {data.artist ? data.artist : recentlyPlayed.artist}
                           </Text>
                         </Flex>
                       </Flex>
