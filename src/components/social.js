@@ -23,7 +23,7 @@ const Email = () => (
       }}>
       <Link
         href={`mailto:${email}`}
-        m='20px auto'
+        my='20px'
         p='10px'
         fontFamily='mono'
         fontSize='md'
