@@ -197,21 +197,6 @@ const AllProjects = () => {
               lg: 'repeat(3, 1fr)',
             }}
             gap={{ base: 3, lg: 5 }}>
-            <GridItem colSpan={1} w={'full'}>
-              <Flex direction={'column'}>
-                {column1.map((project1) => (
-                  <Feature
-                    key={project1.name}
-                    name={project1.name?.replaceAll('-', ' ')}
-                    star_count={project1.stars}
-                    code={project1.url}
-                    description={project1.description}
-                    language={project1.language}
-                    homepage={project1.homepage}
-                    isLoading={isLoading}></Feature>
-                ))}
-              </Flex>
-            </GridItem>
             <GridItem colSpan={1}>
               <Flex direction={'column'}>
                 {column3.map((project3) => (
@@ -223,6 +208,21 @@ const AllProjects = () => {
                     description={project3.description}
                     language={project3.language}
                     homepage={project3.homepage}
+                    isLoading={isLoading}></Feature>
+                ))}
+              </Flex>
+            </GridItem>
+            <GridItem colSpan={1} w={'full'}>
+              <Flex direction={'column'}>
+                {column1.map((project1) => (
+                  <Feature
+                    key={project1.name}
+                    name={project1.name?.replaceAll('-', ' ')}
+                    star_count={project1.stars}
+                    code={project1.url}
+                    description={project1.description}
+                    language={project1.language}
+                    homepage={project1.homepage}
                     isLoading={isLoading}></Feature>
                 ))}
               </Flex>
