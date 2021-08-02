@@ -40,7 +40,11 @@ const Feature = ({
           p={6}>
           <Flex justify='space-between'>
             <Flex align='center' pr={2}>
-              {name != 'lestercardoz11.github.io' ? (
+              {![
+                'lestercardoz11.github.io',
+                'lestercardoz11',
+                'lestercardoz.com',
+              ].includes(name) ? (
                 <Text
                   fontSize='md'
                   fontWeight='bold'
@@ -74,6 +78,9 @@ const Feature = ({
                     variant='link'
                     color='gray.500'
                     mr={3}
+                    _focus={{
+                      outline: 'none',
+                    }}
                     leftIcon={<IoGitBranchOutline />}>
                     <Text fontWeight='normal' fontSize='xs'>
                       Code
@@ -86,6 +93,9 @@ const Feature = ({
                   <Button
                     variant='link'
                     color='gray.500'
+                    _focus={{
+                      outline: 'none',
+                    }}
                     leftIcon={<IoFlashOutline />}>
                     <Text fontWeight='normal' fontSize='xs'>
                       Demo
