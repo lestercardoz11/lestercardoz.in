@@ -21,13 +21,13 @@ This repository contains my personal portfolio that was created with Next.js and
 1. Clone repository
 
    ```sh
-   git clone https://github.com/lestercardoz11/lestercardoz.tech.git
+   git clone https://github.com/lestercardoz11/lestercardoz.com.git
    ```
 
 2. Change the current working directory
 
    ```sh
-   cd lestercardoz.tech
+   cd lestercardoz.com
    ```
 
 3. Install dependencies
