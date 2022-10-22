@@ -10,7 +10,7 @@ const Footer = () => {
         fontWeight={'semibold'}
         letterSpacing={'wide'}
         textAlign={'center'}>
-        © 2021 Lester Cardoz. All rights reserved.
+        © {new Date().getFullYear()} Lester Cardoz. All rights reserved.
       </Text>
     </Box>
   );

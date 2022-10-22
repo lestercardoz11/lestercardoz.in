@@ -83,21 +83,78 @@ const FeaturedProjects = () => {
         </Box>
         <Box w='full' py='20' mx='auto'>
           <Feature
-            title='Bearing Fault Detection Using Comparative Analysis of Random Forest, ANN, and Autoencoder Methods'
-            href='https://link.springer.com/chapter/10.1007/978-981-16-1089-9_14'
-            languages={['machine learning', 'python', 'jupyter notebook']}>
+            title='Opex Genie'
+            href='https://www.opexgenie.com/'
+            languages={['spring boot', 'angular', 'postgreSQL', 'aws']}>
             <List spacing={3}>
               <ListItem>
                 <ListIcon as={CheckCircleIcon} color='green.500' />
-                The motive of this study is to reduce wastage of execution time
-                and the annual expenditure loss due to missed alarms and failure
-                to extract actual data from noise.
+                Developed the user interface which consists of multiple pages,
+                data analysis, file uploads & downloads and charts.
               </ListItem>
               <ListItem>
                 <ListIcon as={CheckCircleIcon} color='green.500' />
-                The main intent of this paper is to assess the efficiency of
-                Random Forest classification, Artificial Neural Networks and
-                Autoencoder on bearing fault diagnosis.
+                Built the backend which consists of multiple APIs, bill
+                analysis, bill extraction, file ingestion and logical
+                calculation/features.
+              </ListItem>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                Created and automated tests for frontend and backend using
+                GitHub actions.
+              </ListItem>
+            </List>
+          </Feature>
+          <Feature
+            title='Tachnique'
+            href='https://tacnique.com/'
+            languages={['next.js', 'airtable api', 'tailwindcss']}>
+            <List spacing={3}>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                HR platform designed to handle the hiring workflow.
+                Communication with the candidates and in-depth details of the
+                hired candidate.
+              </ListItem>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                Developed clean, responsive frontend UI from scratch using
+                Next.js and Airtable API.
+              </ListItem>
+            </List>
+          </Feature>
+          <Feature
+            title='Bangladesh Prime Minister'
+            href='https://bhabpm.com/'
+            languages={['next.js', 'strapi']}>
+            <List spacing={3}>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                Educational platform designed for the children of Bangladesh by
+                the Bangladeshi Government that includes stories, games, quizzes
+                and rewards.
+              </ListItem>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                Developed clean, responsive frontend UI from scratch using
+                Next.js and StrapiCMS.
+              </ListItem>
+            </List>
+          </Feature>
+
+          <Feature
+            title='Property Capsule'
+            href='https://www.propertycapsule.com/'
+            languages={['freemarker', 'html', 'css']}>
+            <List spacing={3}>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                Cloud-based technology platform to help users manage and present
+                their property portfolio for a US company, VTS.
+              </ListItem>
+              <ListItem>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                Migration of multiple websites from PHP to Freemarker.
               </ListItem>
             </List>
           </Feature>
@@ -126,54 +183,21 @@ const FeaturedProjects = () => {
             </List>
           </Feature>
           <Feature
-            title='Property Capsule'
-            href='https://www.propertycapsule.com/'
-            languages={['freemarker', 'html', 'css']}>
+            title='Bearing Fault Detection Using Comparative Analysis of Random Forest, ANN, and Autoencoder Methods'
+            href='https://link.springer.com/chapter/10.1007/978-981-16-1089-9_14'
+            languages={['machine learning', 'python', 'jupyter notebook']}>
             <List spacing={3}>
               <ListItem>
                 <ListIcon as={CheckCircleIcon} color='green.500' />
-                Cloud-based technology platform to help users manage and present
-                their property portfolio for a US company, VTS.
+                The motive of this study is to reduce wastage of execution time
+                and the annual expenditure loss due to missed alarms and failure
+                to extract actual data from noise.
               </ListItem>
               <ListItem>
                 <ListIcon as={CheckCircleIcon} color='green.500' />
-                Migration of multiple websites from PHP to Freemarker.
-              </ListItem>
-            </List>
-          </Feature>
-          <Feature
-            title='Bangladesh Prime Minister'
-            href='https://bhabpm.com/'
-            languages={['next.js', 'strapi']}>
-            <List spacing={3}>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Educational platform designed for the children of Bangladesh by
-                the Bangladeshi Government that includes stories, games, quizzes
-                and rewards.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Developed clean, responsive frontend UI from scratch using
-                Next.js and StrapiCMS.
-              </ListItem>
-            </List>
-          </Feature>
-          <Feature
-            title='Tachnique'
-            href='https://tacnique.com/'
-            languages={['next.js', 'airtable api', 'tailwindcss']}>
-            <List spacing={3}>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                HR platform designed to handle the hiring workflow.
-                Communication with the candidates and in-depth details of the
-                hired candidate.
-              </ListItem>
-              <ListItem>
-                <ListIcon as={CheckCircleIcon} color='green.500' />
-                Developed clean, responsive frontend UI from scratch using
-                Next.js and Airtable API.
+                The main intent of this paper is to assess the efficiency of
+                Random Forest classification, Artificial Neural Networks and
+                Autoencoder on bearing fault diagnosis.
               </ListItem>
             </List>
           </Feature>

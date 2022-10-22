@@ -122,11 +122,11 @@ const Summary = () => {
               }}>
               Ajackus
             </Link>{' '}
-            as an Associate Software Engineer.
+            as a Software Engineer.
             <br />
             <br />
-            I’m a fast learner. I love to learn new programming languages and
-            paradigms to build high-quality software with them.
+            I love to learn new programming languages and paradigms to build
+            high-quality software.
             <br />
             <br />
             I’m currently coding in <Code colorScheme='red'>Angular</Code>,{' '}

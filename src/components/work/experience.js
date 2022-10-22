@@ -65,7 +65,7 @@ const Experience = () => {
         <Feature
           name='Ajackus Consultancy'
           years='September 2020 - Ongoing'
-          position='Associate Software Engineer'
+          position='Software Engineer'
           type='Full time'
           place='Mumbai, India'>
           <List spacing={3}>
