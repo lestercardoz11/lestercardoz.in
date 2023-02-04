@@ -248,36 +248,6 @@ const Summary = () => {
                       </Flex>
                     </Link>
                   </ListItem>
-                  <ListItem
-                    p={2}
-                    border={'solid 2px transparent'}
-                    rounded={'md'}
-                    cursor={'pointer'}
-                    _hover={{ color: '#48BB78' }}>
-                    <Link
-                      href='https://www.primevideo.com/detail/0KZY37OYHB13OROH35PXWORGDZ/ref=atv_dp_share_cu_r
-                    '
-                      target='_blank'
-                      _hover={{ textDecoration: 'none' }}
-                      _focus={{ outline: 'none' }}>
-                      <Flex direction={'row'} align={'center'}>
-                        <ListIcon
-                          w={6}
-                          h={6}
-                          as={IoDesktopOutline}
-                          color='green.400'
-                        />
-                        <Flex direction={'column'} ml={2} fontSize={'md'}>
-                          Psych
-                          <Text
-                            fontSize={'xs'}
-                            color={useColorModeValue('gray.800', 'white')}>
-                            Sitcom
-                          </Text>
-                        </Flex>
-                      </Flex>
-                    </Link>
-                  </ListItem>
                 </List>
               ) : (
                 <Flex direction={'column'} w={'full'}>
