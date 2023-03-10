@@ -3,7 +3,6 @@ import {
   Heading,
   Avatar,
   Text,
-  Button,
   List,
   ListItem,
   ListIcon,
@@ -16,13 +15,10 @@ import {
   AlertTitle,
   Skeleton,
 } from '@chakra-ui/react';
-import {
-  IoDesktopOutline,
-  IoMusicalNotesOutline,
-  IoPinOutline,
-} from 'react-icons/io5';
+import { IoMusicalNotesOutline, IoPinOutline } from 'react-icons/io5';
 import useSWR from 'swr';
 import fetcher from '../../lib/fetcher';
+import Resume from './resume';
 
 const getRecentlyPlayed = () => {
   const { data, error } = useSWR('/api/recently-played', fetcher);
@@ -273,22 +269,7 @@ const Summary = () => {
               )}
             </Stack>
 
-            <Button
-              as={Link}
-              href='resume.pdf'
-              target='_blank'
-              w={'full'}
-              mt={8}
-              bg={useColorModeValue('gray.300', 'gray.700')}
-              color={useColorModeValue('gray.800', 'white')}
-              rounded={'md'}
-              _hover={{
-                bg: useColorModeValue('gray.200', 'gray.800'),
-                textDecoration: 'none',
-              }}
-              _focus={{ outline: 'none' }}>
-              Resume
-            </Button>
+            <Resume />
           </Box>
         </Flex>
       </GridItem>

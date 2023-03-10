@@ -18,12 +18,15 @@ export default async function handler(_, res) {
   let album = '';
   let songUrl = '';
 
-  data.items.map(({ track }) => {
+  data.items.sort((a, b) => (a.played_at < b.played_at ? 1 : -1));
+  const { track } = data.items[0];
+
+  if (track) {
     songUrl = track.external_urls.spotify;
     title = track.name;
     artist = track.artists.map((x) => x.name).join(', ');
     album = track.album.name;
-  });
+  }
 
   res.setHeader(
     'Cache-Control',

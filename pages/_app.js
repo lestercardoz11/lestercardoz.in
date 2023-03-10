@@ -1,12 +1,27 @@
+import { useEffect } from 'react';
 import '../styles/globals.css';
 import { ChakraProvider } from '@chakra-ui/react';
 import Head from 'next/head';
 import { DefaultSeo } from 'next-seo';
+import { useRouter } from 'next/router';
 
-// import your default seo configuration
 import SEO from '@/lib/next-seo.config';
+import * as ga from '@/lib/ga';
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      ga.pageview(url);
+    };
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => {
+      router.events.off('routeChangeComplete', handleRouteChange);
+    };
+  }, [router.events]);
+
   return (
     <ChakraProvider>
       <Head>
