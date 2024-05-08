@@ -10,7 +10,7 @@ import {
   Icon,
 } from '@chakra-ui/react';
 import useSWR from 'swr';
-import fetcher from '../../lib/fetcher';
+import { fetcher } from '../../lib/fetcher';
 import { RiUser6Line, RiGitRepositoryFill, RiStarFill } from 'react-icons/ri';
 
 const Feature = (props) => {

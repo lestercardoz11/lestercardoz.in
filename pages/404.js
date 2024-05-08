@@ -1,20 +1,6 @@
 import Link from 'next/link';
-import styled from 'styled-components';
 import { Box, Button, Center, Flex, Stack } from '@chakra-ui/react';
 import { ArrowBackIcon } from '@chakra-ui/icons';
-
-const Main = styled.div`
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
-
-const SvgContainer = styled.div`
-  width: 50%;
-  height: auto;
-`;
 
 export default function FourOhFour() {
   return (
@@ -190,14 +176,12 @@ export default function FourOhFour() {
 
         <Stack direction='row' m={10} align='center'>
           <Link href='/'>
-            <a>
-              <Button
-                leftIcon={<ArrowBackIcon />}
-                colorScheme='teal'
-                variant='solid'>
-                Go back home
-              </Button>
-            </a>
+            <Button
+              leftIcon={<ArrowBackIcon />}
+              colorScheme='teal'
+              variant='solid'>
+              Go back home
+            </Button>
           </Link>
         </Stack>
       </Flex>

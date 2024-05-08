@@ -105,7 +105,6 @@ const Navbar = () => {
             </Flex>
             <Link href={'/'}>
               <Box
-                as={'a'}
                 w={100}
                 cursor='pointer'
                 _hover={{
@@ -179,7 +178,7 @@ const DesktopNav = ({ navItem }) => {
       <Popover trigger={'hover'} placement={'bottom-start'}>
         <PopoverTrigger>
           <Link href={navItem.url ?? '#'}>
-            <Box as={'a'}>
+            <Box>
               <Button
                 p={2}
                 fontSize={'lg'}
@@ -214,7 +213,6 @@ const MobileNav = ({ navItem, onToggle }) => {
       <Link href={navItem.url ?? '#'}>
         <Flex
           py={2}
-          as={'a'}
           justify={'center'}
           align={'center'}
           _hover={{

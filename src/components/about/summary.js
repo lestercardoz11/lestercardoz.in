@@ -17,7 +17,7 @@ import {
 } from '@chakra-ui/react';
 import { IoMusicalNotesOutline, IoPinOutline } from 'react-icons/io5';
 import useSWR from 'swr';
-import fetcher from '../../lib/fetcher';
+import { fetcher } from '../../lib/fetcher';
 import Resume from './resume';
 
 const getRecentlyPlayed = () => {

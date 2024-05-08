@@ -1,6 +1,6 @@
 import React from 'react';
 import useSWR from 'swr';
-import fetcher from '../../lib/fetcher';
+import { fetcher } from '../../lib/fetcher';
 import {
   Flex,
   Text,
@@ -75,7 +75,6 @@ const Feature = ({
               {code && (
                 <Link href={code} isExternal>
                   <Button
-                    variant='link'
                     color='gray.500'
                     mr={3}
                     _focus={{
@@ -91,7 +90,6 @@ const Feature = ({
               {homepage && (
                 <Link href={homepage} isExternal>
                   <Button
-                    variant='link'
                     color='gray.500'
                     _focus={{
                       outline: 'none',
