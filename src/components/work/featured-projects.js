@@ -43,9 +43,9 @@ const Feature = ({ title, href, languages, children }) => {
               </Heading>
               <ExternalLinkIcon opacity={opacity} fontSize='2xl' />
             </Flex>
-            <Text color={useColorModeValue('gray.600', 'gray.100')}>
+            <Box color={useColorModeValue('gray.600', 'gray.100')}>
               {children}
-            </Text>
+            </Box>
             <Flex
               w={'full'}
               justifyContent={'flex-start'}

@@ -7,7 +7,8 @@ const Email = () => (
     position={'fixed'}
     bottom={0}
     right={12}
-    display={{ base: 'none', lg: 'flex' }}>
+    display={{ base: 'none', lg: 'flex' }}
+    zIndex={9999}>
     <Flex
       direction='column'
       align='center'
@@ -41,7 +42,8 @@ const SocialLinks = () => (
     position={'fixed'}
     bottom={0}
     left={12}
-    display={{ base: 'none', lg: 'flex' }}>
+    display={{ base: 'none', lg: 'flex' }}
+    zIndex={9999}>
     <Flex
       direction='column'
       align='center'

@@ -41,9 +41,7 @@ const Feature = ({ name, years, position, type, place, children }) => {
             </Flex>
           </Flex>
         </Flex>
-        <Text color={useColorModeValue('gray.600', 'gray.100')}>
-          {children}
-        </Text>
+        <Box color={useColorModeValue('gray.600', 'gray.100')}>{children}</Box>
       </Stack>
     </Flex>
   );
