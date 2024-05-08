@@ -118,15 +118,19 @@ const Summary = () => {
               }}>
               Ajackus
             </Link>{' '}
-            as a Software Engineer.
+            as a Senior Software Engineer.
             <br />
             <br />
-            I love to learn new programming languages and paradigms to build
-            high-quality software.
+            I now lead a dynamic team of eight ServiceNow developers. My journey
+            in software engineering has equipped me with the versatility to
+            navigate various tech stacks and lead teams to success. With a
+            passion for innovation and problem-solving, I thrive in fast-paced
+            environments, leveraging my expertise to streamline processes and
+            drive impactful solutions.
             <br />
-            <br />
-            I’m currently coding in <Code colorScheme='red'>Angular</Code>,{' '}
-            <Code colorScheme='purple'>TypeScript</Code>,{' '}
+            <br />I normally code in <Code colorScheme='red'>
+              Angular
+            </Code>, <Code colorScheme='purple'>TypeScript</Code>,{' '}
             <Code colorScheme='blue'>Java</Code> and{' '}
             <Code colorScheme='green'>Spring</Code> but I love to learn other
             programming languages to write programs in as well. In the past
@@ -166,7 +170,7 @@ const Summary = () => {
               Lester Cardoz
             </Heading>
             <Text fontWeight={600} color={'gray.500'} mb={4}>
-              Software Engineer
+              Senior Software Engineer
             </Text>
 
             <Stack
@@ -213,37 +217,41 @@ const Summary = () => {
                       </Flex>
                     </Link>
                   </ListItem>
-                  <ListItem
-                    p={2}
-                    border={'solid 2px transparent'}
-                    rounded={'md'}
-                    cursor={'pointer'}
-                    _hover={{ color: '#48BB78' }}>
-                    <Link
-                      href={
-                        data.songUrl ? data.songUrl : recentlyPlayed.songUrl
-                      }
-                      target='_blank'
-                      _hover={{ textDecoration: 'none' }}
-                      _focus={{ outline: 'none' }}>
-                      <Flex direction={'row'} align={'center'}>
-                        <ListIcon
-                          w={6}
-                          h={6}
-                          as={IoMusicalNotesOutline}
-                          color='green.400'
-                        />
-                        <Flex direction={'column'} ml={2} fontSize={'md'}>
-                          {data.title ? data.title : recentlyPlayed.title}
-                          <Text
-                            fontSize={'xs'}
-                            color={useColorModeValue('gray.800', 'white')}>
-                            {data.artist ? data.artist : recentlyPlayed.artist}
-                          </Text>
+                  {(data.title || recentlyPlayed.title) && (
+                    <ListItem
+                      p={2}
+                      border={'solid 2px transparent'}
+                      rounded={'md'}
+                      cursor={'pointer'}
+                      _hover={{ color: '#48BB78' }}>
+                      <Link
+                        href={
+                          data.songUrl ? data.songUrl : recentlyPlayed.songUrl
+                        }
+                        target='_blank'
+                        _hover={{ textDecoration: 'none' }}
+                        _focus={{ outline: 'none' }}>
+                        <Flex direction={'row'} align={'center'}>
+                          <ListIcon
+                            w={6}
+                            h={6}
+                            as={IoMusicalNotesOutline}
+                            color='green.400'
+                          />
+                          <Flex direction={'column'} ml={2} fontSize={'md'}>
+                            {data.title ? data.title : recentlyPlayed.title}
+                            <Text
+                              fontSize={'xs'}
+                              color={useColorModeValue('gray.800', 'white')}>
+                              {data.artist
+                                ? data.artist
+                                : recentlyPlayed.artist}
+                            </Text>
+                          </Flex>
                         </Flex>
-                      </Flex>
-                    </Link>
-                  </ListItem>
+                      </Link>
+                    </ListItem>
+                  )}
                 </List>
               ) : (
                 <Flex direction={'column'} w={'full'}>

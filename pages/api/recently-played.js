@@ -1,7 +1,7 @@
-import { getRecentlyPlayed } from '@/lib/spotify';
+import { getRecentlyPlayed, getTopTracks } from '@/lib/spotify';
 
 export default async function handler(_, res) {
-  const response = await getRecentlyPlayed();
+  const response = await getTopTracks();
 
   if (response.status === 204 || response.status > 400) {
     return res.status(200).json({ isPlaying: false });
@@ -18,10 +18,8 @@ export default async function handler(_, res) {
   let album = '';
   let songUrl = '';
 
-  data.items.sort((a, b) => (a.played_at < b.played_at ? 1 : -1));
-  const { track } = data.items[0];
-
-  if (track) {
+  if (data.items && data.items[0]) {
+    const { track } = data.items[0];
     songUrl = track.external_urls.spotify;
     title = track.name;
     artist = track.artists.map((x) => x.name).join(', ');

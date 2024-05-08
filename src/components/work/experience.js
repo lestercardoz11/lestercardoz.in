@@ -65,28 +65,40 @@ const Experience = () => {
         <Feature
           name='Ajackus Consultancy'
           years='September 2020 - Ongoing'
-          position='Software Engineer'
+          position='Senior Software Engineer'
           type='Full time'
           place='Mumbai, India'>
           <List spacing={3}>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color='green.500' />
-              Produce clean, well-designed code & detailed specifications.
+              Collaborate with cross-functional teams to align technical
+              solutions with business needs, ensuring high client satisfaction
+              and solution relevance.
             </ListItem>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color='green.500' />
-              Troubleshoot, test and maintain the core product software and
-              databases to ensure strong optimization and functionality.
+              Spearheaded continuous improvement initiatives, promoting best
+              practices and new technologies to optimize project execution and
+              outcomes.
             </ListItem>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color='green.500' />
-              Contribute in all phases of the development lifecycle & follow
-              industry best practices.
+              Acted as a primary point of contact for clients, fostering strong
+              relationships and effectively communicating project requirements,
+              timelines, and deliverables between clients and the development
+              team.
             </ListItem>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color='green.500' />
-              Develop and deploy new features to facilitate related procedures
-              and tools.
+              Developed and deployed full-stack web applications from the ground
+              up, significantly enhancing system efficiency and user experience.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Authored robust backend solutions for API services and complex
+              modules, reducing processing time by 90% and Implemented automated
+              testing for both front and backend systems using GitHub Actions,
+              and secured applications with AWS Amplify and AWS Cognito.
             </ListItem>
           </List>
         </Feature>
@@ -99,9 +111,16 @@ const Experience = () => {
           <List spacing={3}>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color='green.500' />
-              Implemented and deployed a website for non-governmental
-              organization using HTML/CSS, Bootstrap, JavaScript, and Google
-              Cloud Services.
+              Implemented and deployed a website for a non-governmental
+              organization using HTML/CSS, JavaScript and Google Cloud Services.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Applied GIT to track, test and update pre-existing source code.
+            </ListItem>
+            <ListItem>
+              <ListIcon as={CheckCircleIcon} color='green.500' />
+              Managed the website on a weekly basis.
             </ListItem>
           </List>
         </Feature>
@@ -114,9 +133,9 @@ const Experience = () => {
           <List spacing={3}>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color='green.500' />
-              Designed and implemented multi-tier software using the latest
-              technologies, such as ASP.NET, C#, HTML/CSS, jQuery, and SQL
-              Server.
+              Designed and implemented a multi-tier software application using
+              ASP.NET, C#, HTML/CSS, jQuery, and SQL Server, demonstrating early
+              proficiency in software development and design principles.
             </ListItem>
             <ListItem>
               <ListIcon as={CheckCircleIcon} color='green.500' />
