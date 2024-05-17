@@ -20,10 +20,12 @@ export default async function handler(_, res) {
 
   if (data.items && data.items[0]) {
     const { track } = data.items[0];
-    songUrl = track.external_urls.spotify;
-    title = track.name;
-    artist = track.artists.map((x) => x.name).join(', ');
-    album = track.album.name;
+    if (track) {
+      songUrl = track.external_urls.spotify;
+      title = track.name;
+      artist = track.artists.map((x) => x.name).join(', ');
+      album = track.album.name;
+    }
   }
 
   res.setHeader(
