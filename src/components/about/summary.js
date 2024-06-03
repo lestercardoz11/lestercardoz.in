@@ -121,7 +121,7 @@ const Summary = () => {
             as a Senior Software Engineer.
             <br />
             <br />
-            I now lead a dynamic team of eight ServiceNow developers. My journey
+            I now lead a dynamic team of 10+ ServiceNow developers. My journey
             in software engineering has equipped me with the versatility to
             navigate various tech stacks and lead teams to success. With a
             passion for innovation and problem-solving, I thrive in fast-paced
@@ -161,7 +161,7 @@ const Summary = () => {
             textAlign={'center'}>
             <Avatar
               size={'2xl'}
-              src={'/images/profile-img.jpeg'}
+              src={'/images/profile-img.png'}
               alt={'Avatar Alt'}
               loading='eager'
               mb={4}
