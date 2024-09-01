@@ -44,7 +44,7 @@ const Feature = ({
               {![
                 'lestercardoz11.github.io',
                 'lestercardoz11',
-                'lestercardoz.com',
+                'lestercardoz.in',
               ].includes(name) ? (
                 <Text
                   fontSize='md'

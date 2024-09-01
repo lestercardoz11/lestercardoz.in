@@ -1,12 +1,12 @@
 export default {
   title: 'Lester Cardoz - Software Engineer',
   description: 'My portfolio built with Next.js, Chakra UI, and Vercel.',
-  canonical: 'https://www.lestercardoz.tech/',
+  canonical: 'https://www.lestercardoz.in/',
   noindex: true,
   openGraph: {
     type: 'website',
     locale: 'en_IE',
-    url: 'https://www.lestercardoz.tech/',
+    url: 'https://www.lestercardoz.in/',
     images: [
       {
         url: '/android-chrome-512x512.png',
