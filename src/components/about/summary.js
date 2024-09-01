@@ -118,7 +118,7 @@ const Summary = () => {
               }}>
               Ajackus
             </Link>{' '}
-            as a Senior Software Engineer.
+            as a Technical Lead Manager.
             <br />
             <br />
             I now lead a dynamic team of 10+ ServiceNow developers. My journey
@@ -170,7 +170,7 @@ const Summary = () => {
               Lester Cardoz
             </Heading>
             <Text fontWeight={600} color={'gray.500'} mb={4}>
-              Senior Software Engineer
+              Technical Lead Manager
             </Text>
 
             <Stack
