@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/react';
 import Technologies from './technologies';
 import Summary from './summary';
 import Statistics from './statistics';

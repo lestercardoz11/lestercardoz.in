@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/react';
 import { SlideFade } from '@chakra-ui/react';
 import Footer from '../footer';
 import AllProjects from './all-projects';

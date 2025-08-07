@@ -1,4 +1,4 @@
-import { Box, Flex, Stack, SimpleGrid } from '@chakra-ui/layout';
+import { Box, Flex, Stack, SimpleGrid } from '@chakra-ui/react';
 import {
   Text,
   useColorModeValue,

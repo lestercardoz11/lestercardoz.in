@@ -1,4 +1,4 @@
-import { Box, Flex, Stack } from '@chakra-ui/layout';
+import { Box, Flex, Stack } from '@chakra-ui/react';
 import {
   Text,
   useColorModeValue,

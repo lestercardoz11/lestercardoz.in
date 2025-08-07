@@ -1,4 +1,4 @@
-import { Box, Flex, SimpleGrid, Stack } from '@chakra-ui/layout';
+import { Box, Flex, SimpleGrid, Stack } from '@chakra-ui/react';
 import {
   Heading,
   Avatar,

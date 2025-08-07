@@ -1,4 +1,4 @@
-import { Box } from '@chakra-ui/layout';
+import { Box } from '@chakra-ui/react';
 import { Link, Table, Tbody, Td, Text, Th, Thead, Tr } from '@chakra-ui/react';
 
 const TechnologyStack = () => {
