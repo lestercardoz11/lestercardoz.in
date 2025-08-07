@@ -37,7 +37,8 @@ const Resume = () => {
       headers: {
         'Content-Type': 'application/json',
       },
-    }).then((res) => {
+    })
+      .then((res) => {
       onClose();
       setName('');
       setEmail('');
@@ -58,7 +59,19 @@ const Resume = () => {
           isClosable: true,
         });
       }
-    });
+    })
+      .catch((error) => {
+        console.error('Error:', error);
+        toast({
+          title: 'Download failed',
+          description: 'Network error occurred',
+          status: 'error',
+          variant: 'left-accent',
+          duration: 9000,
+          position: 'bottom-right',
+          isClosable: true,
+        });
+      });
   };
 
   return (

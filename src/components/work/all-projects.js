@@ -74,7 +74,7 @@ const Feature = ({
           <Flex w='100%' justify={'space-between'}>
             <Flex>
               {code && (
-                <Link href={code} isExternal>
+                <Link href={code} target="_blank" rel="noopener noreferrer">
                   <Box
                     display={'flex'}
                     color='gray.500'
@@ -90,7 +90,7 @@ const Feature = ({
                 </Link>
               )}
               {homepage && (
-                <Link href={homepage} marginStart={2} isExternal>
+                <Link href={homepage} marginStart={2} target="_blank" rel="noopener noreferrer">
                   <Box
                     display={'flex'}
                     color='gray.500'

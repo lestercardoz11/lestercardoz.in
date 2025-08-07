@@ -7,6 +7,7 @@ import { useRouter } from 'next/router';
 
 import SEO from '@/lib/next-seo.config';
 import * as ga from '@/lib/ga';
+import theme from '@/lib/theme';
 
 function MyApp({ Component, pageProps }) {
   const router = useRouter();
@@ -23,7 +24,7 @@ function MyApp({ Component, pageProps }) {
   }, [router.events]);
 
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <Head>
         <title>Lester Cardoz - Software Engineer</title>
         <link rel='icon' href='/favicon.ico' />
