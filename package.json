@@ -8,6 +8,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node ./scripts/generate-sitemap.js",
     "start": "next start"
   },
   "dependencies": {
@@ -28,5 +29,8 @@
     "react-transition-group": "^4.4.1",
     "styled-components": "^6.1.15",
     "swr": "^2.3.0"
+  },
+  "devDependencies": {
+    "globby": "^16.1.0"
   }
 }
