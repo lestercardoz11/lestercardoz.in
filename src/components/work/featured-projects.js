@@ -20,7 +20,39 @@ const Feature = ({ project }) => {
   const bg = useColorModeValue('gray.100', 'gray.900');
   const textColor = useColorModeValue('gray.600', 'gray.100');
 
-  return (
+  const content = (
+    <Flex align='center' bg={bg} rounded='lg' p={6}>
+      <Stack w='full'>
+        <Flex justify='space-between' align='center'>
+          <Heading size='md' fontWeight='bold'>
+            {project.title}
+          </Heading>
+          <ExternalLinkIcon fontSize='2xl' opacity={hovered ? 1 : 0} />
+        </Flex>
+
+        <Box color={textColor}>
+          <List spacing={3}>
+            {project.points.map((point, idx) => (
+              <ListItem key={idx}>
+                <ListIcon as={CheckCircleIcon} color='green.500' />
+                {point}
+              </ListItem>
+            ))}
+          </List>
+        </Box>
+
+        <Flex pt={3} flexWrap='wrap'>
+          {project.languages.map((lang, idx) => (
+            <Badge key={idx} m={1} letterSpacing='wider' colorScheme='teal'>
+              {lang}
+            </Badge>
+          ))}
+        </Flex>
+      </Stack>
+    </Flex>
+  );
+
+  return project.href ? (
     <Box mb={10}>
       <Link
         href={project.href}
@@ -28,37 +60,11 @@ const Feature = ({ project }) => {
         _hover={{ textDecoration: 'none' }}
         onMouseEnter={() => setHovered(true)}
         onMouseLeave={() => setHovered(false)}>
-        <Flex align='center' bg={bg} rounded='lg' p={6}>
-          <Stack w='full'>
-            <Flex justify='space-between' align='center'>
-              <Heading size='md' fontWeight='bold'>
-                {project.title}
-              </Heading>
-              <ExternalLinkIcon fontSize='2xl' opacity={hovered ? 1 : 0} />
-            </Flex>
-
-            <Box color={textColor}>
-              <List spacing={3}>
-                {project.points.map((point, idx) => (
-                  <ListItem key={idx}>
-                    <ListIcon as={CheckCircleIcon} color='green.500' />
-                    {point}
-                  </ListItem>
-                ))}
-              </List>
-            </Box>
-
-            <Flex pt={3} flexWrap='wrap'>
-              {project.languages.map((lang, idx) => (
-                <Badge key={idx} m={1} letterSpacing='wider' colorScheme='teal'>
-                  {lang}
-                </Badge>
-              ))}
-            </Flex>
-          </Stack>
-        </Flex>
+        {content}
       </Link>
     </Box>
+  ) : (
+    <Box mb={10}>{content}</Box>
   );
 };
 

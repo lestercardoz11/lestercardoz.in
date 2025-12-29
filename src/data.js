@@ -125,7 +125,7 @@ export const featuredProjectsData = [
   },
   {
     title: 'Bangladesh Prime Minister',
-    href: 'https://bhabpm.com/',
+    href: '',
     languages: ['next.js', 'strapi'],
     points: [
       'Educational platform for children of Bangladesh including stories, games, quizzes, and rewards.',
@@ -143,7 +143,7 @@ export const featuredProjectsData = [
   },
   {
     title: 'Safe Travel Barometer',
-    href: 'https://dashboard.safetravelbarometer.com/',
+    href: '',
     languages: [
       'laravel',
       'laravel backpack',
