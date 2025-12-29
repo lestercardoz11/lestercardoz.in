@@ -94,58 +94,7 @@ const Summary = () => {
             fontSize={{ base: 'md', md: 'lg' }}
             color={useColorModeValue('brand.600', 'gray.400')}
             letterSpacing='wider'>
-            I'm a software engineer who specializes in building and designing
-            exceptional digital experiences. I work at{' '}
-            <Link
-              href='https://ajackus.com/'
-              target='_blank'
-              px={1}
-              textDecoration={'none'}
-              borderBottom={'.125em solid #27a9e1'}
-              boxShadow={'inset 0 -0.125em 0 #27a9e1'}
-              transition={
-                'box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1)'
-              }
-              _hover={{
-                color: 'white',
-                boxShadow: 'inset 0 -1.125em 0 #27a9e1',
-              }}
-              _focus={{
-                outline: 'none',
-                background: '#27a9e1',
-                color: '#fff',
-                boxShadow: '8px 8px 24px rgba(0, 0, 0, 0.2)',
-              }}>
-              Ajackus
-            </Link>{' '}
-            as a Technical Lead Manager.
-            <br />
-            <br />
-            I now lead a dynamic team of 10+ ServiceNow developers. My journey
-            in software engineering has equipped me with the versatility to
-            navigate various tech stacks and lead teams to success. With a
-            passion for innovation and problem-solving, I thrive in fast-paced
-            environments, leveraging my expertise to streamline processes and
-            drive impactful solutions.
-            <br />
-            <br />I normally code in <Code colorScheme='red'>
-              Angular
-            </Code>, <Code colorScheme='purple'>TypeScript</Code>,{' '}
-            <Code colorScheme='blue'>Java</Code> and{' '}
-            <Code colorScheme='green'>Spring</Code> but I love to learn other
-            programming languages to write programs in as well. In the past
-            years, I’ve also had the opportunity to code in{' '}
-            <Code colorScheme='red'>PHP</Code>,{' '}
-            <Code colorScheme='blue'>C#</Code>,{' '}
-            <Code colorScheme='green'>Java</Code>,{' '}
-            <Code colorScheme='purple'>Python</Code>, and other languages.
-            <br />
-            <br />I also like to write frontend applications using{' '}
-            <Code colorScheme='purple'>React</Code>,{' '}
-            <Code colorScheme='blue'>Next.js</Code>,{' '}
-            <Code colorScheme='pink'>SASS</Code>, or just{' '}
-            <Code colorScheme='green'>Vanilla JS</Code> and{' '}
-            <Code colorScheme='blue'>CSS</Code>.
+            Results-driven Technical Lead Manager with 5 years of experience handling 12 customer accounts and leading cross-functional engineering teams across full-stack development projects and ServiceNow platform implementations. Demonstrated expertise in ITSM, ITOM, GRC, and custom application development with proven success overseeing 20+ concurrent projects and managing 15+ developers. Skilled in technical architecture design, business solutioning, and bridging the gap between sales and technical teams to develop compelling business proposals and deliver enterprise solutions that exceed business objectives.
           </Text>
         </Flex>
       </GridItem>

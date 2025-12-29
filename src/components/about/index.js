@@ -5,6 +5,8 @@ import Statistics from './statistics';
 import Footer from '../footer';
 import { SlideFade } from '@chakra-ui/react';
 import Testimonials from './testimonials';
+import Education from './education';
+import Certifications from './certifications';
 
 const Main = () => {
   return (
@@ -12,6 +14,8 @@ const Main = () => {
       <Box px={{ base: 10, md: 14, lg: 60 }} my={10} w={'auto'}>
         <Summary />
         <Technologies />
+        <Education />
+        <Certifications />
         <Statistics />
         <Testimonials />
         <Footer />

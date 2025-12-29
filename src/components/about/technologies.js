@@ -58,19 +58,18 @@ const Technologies = () => {
                   letterSpacing='widest'
                   textTransform='uppercase'
                   color={useColorModeValue('gray.700', 'gray.400')}>
-                  Frontend
+                  Leadership
                 </Text>
               </Flex>
               <Stack direction='column' p='6' spacing='3' flexGrow='1'>
-                <Feature color='red'>React</Feature>
-                <Feature color='pink'>Angular</Feature>
-                <Feature color='yellow'>Next.js</Feature>
-                <Feature color='green'>Javascript</Feature>
-                <Feature color='purple'>HTML/CSS</Feature>
-                <Feature color='blue'>SASS</Feature>
+                <Feature color='red'>Team Management</Feature>
+                <Feature color='pink'>Technical Mentorship</Feature>
+                <Feature color='yellow'>Resource Planning</Feature>
+                <Feature color='green'>Agile/SCRUM</Feature>
+                <Feature color='purple'>Project Estimation</Feature>
+                <Feature color='blue'>Solution Architecture</Feature>
               </Stack>
             </Box>
-
             <Box
               rounded={'lg'}
               shadow={'md'}
@@ -89,19 +88,22 @@ const Technologies = () => {
                   letterSpacing='widest'
                   textTransform='uppercase'
                   color={useColorModeValue('gray.700', 'gray.400')}>
-                  Backend
+                  Development
                 </Text>
               </Flex>
               <Stack direction='column' p='6' spacing='3' flexGrow='1'>
-                <Feature color='teal'>Node.js</Feature>
-                <Feature color='orange'>Laravel</Feature>
-                <Feature color='pink'>ASP.NET</Feature>
-                <Feature color='red'>C#</Feature>
-                <Feature color='cyan'>Java</Feature>
-                <Feature color='green'>Spring</Feature>
+                <Feature color='red'>JavaScript</Feature>
+                <Feature color='pink'>Java</Feature>
+                <Feature color='yellow'>C#</Feature>
+                <Feature color='green'>Python</Feature>
+                <Feature color='purple'>Angular</Feature>
+                <Feature color='blue'>React</Feature>
+                <Feature color='red'>Next.js</Feature>
+                <Feature color='pink'>Spring</Feature>
+                <Feature color='yellow'>Laravel</Feature>
+                <Feature color='green'>.NET</Feature>
               </Stack>
             </Box>
-
             <Box
               rounded={'lg'}
               shadow={'md'}
@@ -120,15 +122,51 @@ const Technologies = () => {
                   letterSpacing='widest'
                   textTransform='uppercase'
                   color={useColorModeValue('gray.700', 'gray.400')}>
-                  Database / CMS
+                  Database/Cloud
                 </Text>
               </Flex>
               <Stack direction='column' p='6' spacing='3' flexGrow='1'>
-                <Feature color='purple'>PostgreSQL</Feature>
-                <Feature color='blue'>Strapi</Feature>
-                <Feature color='green'>MongoDB</Feature>
-                <Feature color='teal'>MS SQL Server</Feature>
+                <Feature color='red'>PostgreSQL</Feature>
+                <Feature color='pink'>MongoDB</Feature>
                 <Feature color='yellow'>MySQL</Feature>
+                <Feature color='green'>AWS Amplify</Feature>
+                <Feature color='purple'>GitHub Actions</Feature>
+                <Feature color='blue'>Docker</Feature>
+                <Feature color='red'>CI/CD</Feature>
+              </Stack>
+            </Box>
+            <Box
+              rounded={'lg'}
+              shadow={'md'}
+              bg={useColorModeValue('gray.100', 'gray.900')}>
+              <Flex
+                direction='column'
+                justify='center'
+                align='center'
+                p='6'
+                borderBottomWidth='1px'
+                borderColor={useColorModeValue('gray.200', 'gray.600')}>
+                <Text
+                  mb={1}
+                  fontSize={{ base: 'sm', lg: 'xl' }}
+                  fontWeight='bold'
+                  letterSpacing='widest'
+                  textTransform='uppercase'
+                  color={useColorModeValue('gray.700', 'gray.400')}>
+                  ServiceNow
+                </Text>
+              </Flex>
+              <Stack direction='column' p='6' spacing='3' flexGrow='1'>
+                <Feature color='red'>ITSM</Feature>
+                <Feature color='pink'>ITOM</Feature>
+                <Feature color='yellow'>GRC</Feature>
+                <Feature color='green'>SecOps</Feature>
+                <Feature color='purple'>HRSD</Feature>
+                <Feature color='blue'>ITAM</Feature>
+                <Feature color='red'>IRM</Feature>
+                <Feature color='pink'>RPA</Feature>
+                <Feature color='yellow'>Flow Designer</Feature>
+                <Feature color='green'>UI Builder</Feature>
               </Stack>
             </Box>
           </SimpleGrid>

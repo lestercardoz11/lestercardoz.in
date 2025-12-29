@@ -1,0 +1,25 @@
+yarn run v1.22.22
+$ next dev
+   ▲ Next.js 15.1.11
+   - Local:        http://localhost:3000
+   - Network:      http://192.168.0.2:3000
+
+ ✓ Starting...
+Attention: Next.js now collects completely anonymous telemetry regarding usage.
+This information is used to shape Next.js' roadmap and prioritize features.
+You can learn more, including how to opt-out if you'd not like to participate in this anonymous program, by visiting the following URL:
+https://nextjs.org/telemetry
+
+ ✓ Ready in 1431ms
+ ○ Compiling / ...
+ ✓ Compiled / in 14.8s (1699 modules)
+ GET / 200 in 16865ms
+ ✓ Compiled /api/github-stats in 416ms (375 modules)
+ ✓ Compiled (379 modules)
+ GET /api/now-playing 200 in 657ms
+ GET /api/recently-played 200 in 654ms
+ GET /api/github-stats 200 in 1222ms
+ GET / 200 in 718ms
+ GET /api/now-playing 200 in 63ms
+ GET /api/recently-played 200 in 72ms
+ GET /api/github-stats 200 in 379ms
