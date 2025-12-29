@@ -1,3 +1,4 @@
+import { DownloadIcon } from '@chakra-ui/icons';
 import {
   Button,
   useColorModeValue,
@@ -13,6 +14,9 @@ import {
   Input,
   ModalFooter,
   useToast,
+  Icon,
+  IconButton,
+  Tooltip,
 } from '@chakra-ui/react';
 import { useState } from 'react';
 
@@ -39,27 +43,27 @@ const Resume = () => {
       },
     })
       .then((res) => {
-      onClose();
-      setName('');
-      setEmail('');
+        onClose();
+        setName('');
+        setEmail('');
 
-      if (res.status === 201) {
-        const anchor = document.createElement('a');
-        anchor.href = 'resume.pdf';
-        anchor.target = '_blank';
-        anchor.click();
-      } else {
-        toast({
-          title: 'Download failed',
-          description: 'Unable to retreive PDF',
-          status: 'error',
-          variant: 'left-accent',
-          duration: 9000,
-          position: 'bottom-right',
-          isClosable: true,
-        });
-      }
-    })
+        if (res.status === 201) {
+          const anchor = document.createElement('a');
+          anchor.href = 'resume.pdf';
+          anchor.target = '_blank';
+          anchor.click();
+        } else {
+          toast({
+            title: 'Download failed',
+            description: 'Unable to retreive PDF',
+            status: 'error',
+            variant: 'left-accent',
+            duration: 9000,
+            position: 'bottom-right',
+            isClosable: true,
+          });
+        }
+      })
       .catch((error) => {
         console.error('Error:', error);
         toast({
@@ -76,20 +80,26 @@ const Resume = () => {
 
   return (
     <>
-      <Button
-        onClick={onOpen}
-        w={'full'}
-        mt={8}
-        bg={useColorModeValue('gray.300', 'gray.700')}
-        color={useColorModeValue('gray.800', 'white')}
-        rounded={'md'}
-        _hover={{
-          bg: useColorModeValue('gray.200', 'gray.800'),
-          textDecoration: 'none',
-        }}
-        _focus={{ outline: 'none' }}>
-        Download Résumé
-      </Button>
+      <Tooltip
+        content='Download Résumé'
+        label='Download Résumé'
+        placement='top'>
+        <IconButton
+          position={'absolute'}
+          top={2}
+          right={2}
+          onClick={onOpen}
+          bg={useColorModeValue('gray.100', 'gray.900')}
+          color={useColorModeValue('gray.800', 'white')}
+          rounded={'full'}
+          _hover={{
+            bg: useColorModeValue('gray.200', 'gray.800'),
+            textDecoration: 'none',
+          }}
+          _focus={{ outline: 'none' }}>
+          <DownloadIcon />
+        </IconButton>
+      </Tooltip>
 
       <Modal isOpen={isOpen} onClose={onClose}>
         <ModalOverlay />

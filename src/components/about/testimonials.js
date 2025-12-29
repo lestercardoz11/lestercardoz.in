@@ -1,135 +1,119 @@
-import { Box } from '@chakra-ui/react';
-import { Text, Flex, HStack, Image } from '@chakra-ui/react';
-import { useState } from 'react';
+import {
+  Box,
+  Flex,
+  Text,
+  Avatar,
+  Stack,
+  Icon,
+  SimpleGrid,
+  useColorModeValue,
+  Image,
+  Link as ChakraLink,
+} from '@chakra-ui/react';
+import { FaQuoteLeft } from 'react-icons/fa';
+import { testimonialsData } from 'src/data';
 
-const Testimonials = () => {
-  const arrowStyles = {
-    cursor: 'pointer',
-    pos: 'absolute',
-    top: '50%',
-    w: 'auto',
-    mt: '-22px',
-    p: '16px',
-    color: 'white',
-    fontWeight: 'bold',
-    fontSize: '18px',
-    transition: '0.6s ease',
-    borderRadius: '0 3px 3px 0',
-    userSelect: 'none',
-    _hover: {
-      opacity: 0.8,
-      bg: 'black',
-    },
-  };
-  const slides = [
-    {
-      img: '/images/04-2024.webp',
-    },
-    {
-      img: '/images/10-2023.webp',
-    },
-    {
-      img: '/images/06-2023.webp',
-    },
-  ];
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const slidesCount = slides.length;
+const TestimonialCard = ({ testimonial }) => {
+  const bg = useColorModeValue('gray.50', 'gray.900');
+  const textColor = useColorModeValue('gray.600', 'gray.300');
+  const hoverBg = useColorModeValue('gray.100', 'gray.800');
 
-  const prevSlide = () => {
-    setCurrentSlide((s) => (s === 0 ? slidesCount - 1 : s - 1));
-  };
+  const cardContent = (
+    <Box
+      bg={bg}
+      rounded='lg'
+      p={8}
+      h='full'
+      display='flex'
+      flexDirection='column'
+      justifyContent='space-between'
+      transition='all 0.1s ease'
+      borderWidth={'2px'}
+      cursor={testimonial.link ? 'pointer' : 'default'}
+      _hover={
+        testimonial.link
+          ? { bg: hoverBg, borderColor: '#48BB78', borderWidth: '2px' }
+          : {}
+      }>
+      <Box
+        display='flex'
+        justifyContent='space-between'
+        alignItems='start'
+        mb={6}>
+        {/* Company */}
+        <Image
+          src={testimonial.companyLogo}
+          alt={testimonial.company}
+          width='80px'
+          mb={4}
+        />
+        <Text
+          color={textColor}
+          fontSize='xs'
+          fontWeight='bold'
+          textTransform='uppercase'
+          lineHeight='tall'>
+          {testimonial.date}
+        </Text>
+      </Box>
 
-  const nextSlide = () => {
-    setCurrentSlide((s) => (s === slidesCount - 1 ? 0 : s + 1));
-  };
+      {/* Quote */}
+      <Stack spacing={4} flex='1'>
+        <Icon as={FaQuoteLeft} boxSize={6} color='#48BB78' />
+        <Text
+          color={textColor}
+          fontSize='md'
+          fontWeight={'medium'}
+          lineHeight='tall'>
+          {testimonial.quote}
+        </Text>
+      </Stack>
 
-  const setSlide = (slide) => {
-    setCurrentSlide(slide);
-  };
-
-  const carouselStyle = {
-    transition: 'all .5s',
-    ml: `-${currentSlide * 100}%`,
-  };
-
-  return (
-    <Box my={10} w={'auto'}>
-      <Box pt='10'>
-        <Box w='full' px={{ base: 10, lg: 4 }} mx='auto' textAlign='center'>
-          <Text
-            mb={2}
-            fontSize={{ base: '3xl', md: '5xl' }}
-            fontWeight='bold'
-            lineHeight='tight'>
-            Testimonials
+      {/* Author */}
+      <Flex mt={8} align='center'>
+        <Avatar src={testimonial.avatar} mr={4} />
+        <Box>
+          <Text fontWeight='bold'>{testimonial.name}</Text>
+          <Text fontSize='sm' color={textColor}>
+            {testimonial.role}
           </Text>
         </Box>
-        <Box w='full' py='20' mx='auto'>
-          <Flex
-            w='full'
-            alignItems='center'
-            justifyContent='center'
-            rounded={'lg'}
-            shadow={'md'}
-            overflow={'hidden'}>
-            <Flex w='full' overflow='hidden' pos='relative'>
-              <Flex h='400px' w='full' {...carouselStyle}>
-                {slides.map((slide, sid) => (
-                  <Box
-                    key={`slide-${sid}`}
-                    boxSize='full'
-                    shadow='md'
-                    flex='none'>
-                    <Text
-                      color='white'
-                      fontSize='xs'
-                      p='8px 12px'
-                      pos='absolute'
-                      top='0'>
-                      {sid + 1} / {slidesCount}
-                    </Text>
-                    <Image
-                      src={slide.img}
-                      alt={'Testimonial ' + sid}
-                      boxSize='full'
-                      backgroundSize='cover'
-                    />
-                  </Box>
-                ))}
-              </Flex>
-              <Text {...arrowStyles} left='0' onClick={prevSlide}>
-                &#10094;
-              </Text>
-              <Text {...arrowStyles} right='0' onClick={nextSlide}>
-                &#10095;
-              </Text>
-              <HStack justify='center' pos='absolute' bottom='8px' w='full'>
-                {Array.from({
-                  length: slidesCount,
-                }).map((_, slide) => (
-                  <Box
-                    key={`dots-${slide}`}
-                    cursor='pointer'
-                    boxSize={['7px', null, '15px']}
-                    m='0 2px'
-                    bg={
-                      currentSlide === slide
-                        ? 'blackAlpha.500'
-                        : 'blackAlpha.200'
-                    }
-                    rounded='50%'
-                    display='inline-block'
-                    transition='background-color 0.6s ease'
-                    _hover={{
-                      bg: 'blackAlpha.500',
-                    }}
-                    onClick={() => setSlide(slide)}></Box>
-                ))}
-              </HStack>
-            </Flex>
-          </Flex>
-        </Box>
+      </Flex>
+    </Box>
+  );
+
+  // If link is present, wrap with ChakraLink
+  return testimonial.link ? (
+    <ChakraLink
+      href={testimonial.link}
+      isExternal
+      _hover={{ textDecoration: 'none' }}>
+      {cardContent}
+    </ChakraLink>
+  ) : (
+    cardContent
+  );
+};
+
+const Testimonials = () => {
+  return (
+    <Box my={10} w='auto'>
+      {/* Header */}
+      <Box mb={16}>
+        <Text color='#48BB78' fontWeight='semibold' mb={2}>
+          Trusted by professionals
+        </Text>
+        <Text fontSize={{ base: '3xl', md: '5xl' }} fontWeight='bold'>
+          What professionals say
+        </Text>
       </Box>
+
+      {/* Grid */}
+      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+        {testimonialsData.map((testimonial, index) => (
+          <TestimonialCard key={index} testimonial={testimonial} />
+        ))}
+      </SimpleGrid>
     </Box>
   );
 };
