@@ -109,7 +109,7 @@ const Testimonials = () => {
       </Box>
 
       {/* Grid */}
-      <SimpleGrid columns={{ base: 1, md: 2 }} spacing={8}>
+      <SimpleGrid columns={{ base: 1 }} spacing={8}>
         {testimonialsData.map((testimonial, index) => (
           <TestimonialCard key={index} testimonial={testimonial} />
         ))}

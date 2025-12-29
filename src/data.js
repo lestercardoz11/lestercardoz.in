@@ -8,96 +8,97 @@ export const SummaryText = () => {
       fontSize={{ base: 'md', md: 'lg' }}
       color={useColorModeValue('brand.600', 'gray.400')}
       letterSpacing='wider'>
-      I'm a software engineer who specializes in building and designing
-      exceptional digital experiences. I work at{' '}
+      I’m a <strong>Technical Lead Manager</strong> and
+      <strong> product-focused engineering leader</strong> at{' '}
       <Link
         href='https://ajackus.com/'
         target='_blank'
         px={1}
-        textDecoration={'none'}
-        borderBottom={'.125em solid #27a9e1'}
-        boxShadow={'inset 0 -0.125em 0 #27a9e1'}
-        transition={
-          'box-shadow 270ms cubic-bezier(0.77, 0, 0.175, 1), color 270ms cubic-bezier(0.77, 0, 0.175, 1)'
-        }
-        _hover={{
-          color: 'white',
-          boxShadow: 'inset 0 -1.125em 0 #27a9e1',
-        }}
-        _focus={{
-          outline: 'none',
-          background: '#27a9e1',
-          color: '#fff',
-          boxShadow: '8px 8px 24px rgba(0, 0, 0, 0.2)',
-        }}>
+        textDecoration='none'
+        borderBottom='.125em solid #27a9e1'
+        boxShadow='inset 0 -0.125em 0 #27a9e1'>
         Ajackus
-      </Link>{' '}
-      as a Technical Lead Manager.
+      </Link>
+      , where I lead cross-functional teams of
+      <strong> 15+ engineers</strong> delivering
+      <strong> business-critical enterprise products</strong> across ServiceNow,
+      SaaS, and cloud ecosystems.
       <br />
       <br />
-      I now lead a dynamic team of 10+ ServiceNow developers. My journey in
-      software engineering has equipped me with the versatility to navigate
-      various tech stacks and lead teams to success. With a passion for
-      innovation and problem-solving, I thrive in fast-paced environments,
-      leveraging my expertise to streamline processes and drive impactful
-      solutions.
+      My role sits at the intersection of
+      <strong>
+        {' '}
+        product strategy, technical execution, and client outcomes
+      </strong>
+      . I work closely with clients, sales, and leadership to translate
+      ambiguous business problems into clear product roadmaps, scalable
+      architectures, and reliable delivery plans.
       <br />
-      <br />I normally code in <Code colorScheme='red'>Angular</Code>,{' '}
-      <Code colorScheme='purple'>TypeScript</Code>,{' '}
-      <Code colorScheme='blue'>Java</Code> and{' '}
-      <Code colorScheme='green'>Spring</Code> but I love to learn other
-      programming languages to write programs in as well. In the past years,
-      I’ve also had the opportunity to code in{' '}
-      <Code colorScheme='red'>PHP</Code>, <Code colorScheme='blue'>C#</Code>,{' '}
-      <Code colorScheme='green'>Java</Code>,{' '}
-      <Code colorScheme='purple'>Python</Code>, and other languages.
       <br />
-      <br />I also like to write frontend applications using{' '}
-      <Code colorScheme='purple'>React</Code>,{' '}
-      <Code colorScheme='blue'>Next.js</Code>,{' '}
-      <Code colorScheme='pink'>SASS</Code>, or just{' '}
-      <Code colorScheme='green'>Vanilla JS</Code> and{' '}
-      <Code colorScheme='blue'>CSS</Code>.
+      While I remain deeply technical, my focus today is on
+      <strong> leverage and impact</strong>—building teams, systems, and
+      processes that scale beyond individual contributors. I empower engineers
+      to own execution while I focus on direction, quality, and long-term
+      product health.
+      <br />
+      <br />
+      I’m driven by building products that
+      <strong> solve real problems</strong>, growing people into confident
+      owners, and creating teams that consistently deliver value in fast-moving,
+      high-stakes environments.
     </Text>
   );
 };
 
 export const experienceData = [
   {
-    name: 'Ajackus Consultancy',
-    years: 'September 2020 - Ongoing',
+    name: 'Ajackus Consultancy LLP',
+    years: 'September 2020 - Present',
     position: 'Technical Lead Manager',
     type: 'Full time',
     place: 'Mumbai, India',
     points: [
-      'Collaborate with cross-functional teams to align technical solutions with business needs, ensuring high client satisfaction and solution relevance.',
-      'Spearheaded continuous improvement initiatives, promoting best practices and new technologies to optimize project execution and outcomes.',
-      'Acted as a primary point of contact for clients, fostering strong relationships and effectively communicating project requirements, timelines, and deliverables between clients and the development team.',
-      'Developed and deployed full-stack web applications from the ground up, significantly enhancing system efficiency and user experience.',
-      'Authored robust backend solutions for API services and complex modules, reducing processing time by 90%, implemented automated testing using GitHub Actions, and secured applications with AWS Amplify and AWS Cognito.',
+      'Lead 15+ developers across 20+ concurrent projects spanning ServiceNow, full-stack web, and enterprise platforms.',
+      'Act as technical liaison between clients, sales, and engineering teams, translating business requirements into technical solutions with 95% client satisfaction.',
+      'Architect ServiceNow implementations across ITSM, ITOM, SecOps, GRC, IRM, and custom scoped applications.',
+      'Partner with sales and leadership on pre-sales, solution architecture, POCs, and proposals, contributing to 60% growth in new contracts.',
+      'Established technical interview processes and conducted 50+ assessments to build high-performing teams.',
     ],
   },
   {
-    name: 'Tribus Non-Governmental Organisation',
-    years: 'October 2019 - March 2020',
-    position: 'Web Developer',
-    type: 'Volunteer',
-    place: 'Pune, India',
+    name: 'Ajackus Consultancy LLP',
+    years: 'July 2023 - July 2024',
+    position: 'Senior Software Engineer',
+    type: 'Full time',
+    place: 'Mumbai, India',
     points: [
-      'Implemented and deployed a website for a non-governmental organization using HTML, CSS, JavaScript, and Google Cloud Services.',
-      'Applied GIT to track, test, and update pre-existing source code.',
-      'Managed the website on a weekly basis.',
+      'Managed full-stack applications using Angular, Spring Boot, AWS, and PostgreSQL processing 10,000+ daily transactions.',
+      'Led ServiceNow delivery across multiple enterprise modules with on-time, zero-escalation releases.',
+      'Integrated SSO across Azure AD and AWS Cognito, reducing authentication issues by 75%.',
+      'Implemented structured code review practices reducing production defects by 25%.',
     ],
   },
   {
-    name: 'IMTAC',
+    name: 'Ajackus Consultancy LLP',
+    years: 'March 2022 - July 2023',
+    position: 'Software Engineer',
+    type: 'Full time',
+    place: 'Mumbai, India',
+    points: [
+      'Co-developed Tacnique from prototype to revenue-generating platform using Next.js and Airtable.',
+      'Designed scalable backend APIs and complex processing modules, reducing execution time by 90%.',
+      'Built dynamic data-driven UIs with charts, analytics, and visualizations.',
+    ],
+  },
+  {
+    name: 'IMTAC LLC',
     years: 'December 2018 - June 2019',
-    position: '.NET Developer',
+    position: '.NET Developer Intern',
     type: 'Internship',
     place: 'Muscat, Oman',
     points: [
-      'Designed and implemented a multi-tier software application using ASP.NET, C#, HTML/CSS, jQuery, and SQL Server.',
-      'Participated in a full software development life cycle from scoping, analysis, design, and implementation to meet client needs.',
+      'Developed a housing management system from scratch using C#, ASP.NET, and Microsoft SQL Server.',
+      'Worked across the full SDLC including analysis, development, testing, and deployment.',
     ],
   },
 ];
@@ -174,31 +175,40 @@ export const technologiesData = [
     items: [
       { name: 'React', color: 'red' },
       { name: 'Angular', color: 'pink' },
-      { name: 'Next.js', color: 'yellow' },
-      { name: 'Javascript', color: 'green' },
-      { name: 'HTML/CSS', color: 'purple' },
-      { name: 'SASS', color: 'blue' },
+      { name: 'Next.js', color: 'blue' },
+      { name: 'TypeScript', color: 'purple' },
+      { name: 'JavaScript', color: 'yellow' },
+      { name: 'TailwindCSS / SASS', color: 'teal' },
     ],
   },
   {
-    category: 'Backend',
+    category: 'Backend & Architecture',
     items: [
-      { name: 'Node.js', color: 'teal' },
-      { name: 'Laravel', color: 'orange' },
-      { name: 'ASP.NET', color: 'pink' },
-      { name: 'C#', color: 'red' },
-      { name: 'Java', color: 'cyan' },
-      { name: 'Spring', color: 'green' },
+      { name: 'Node.js', color: 'green' },
+      { name: 'Spring Boot', color: 'cyan' },
+      { name: 'GraphQL', color: 'purple' },
+      { name: 'REST APIs', color: 'orange' },
+      { name: 'Microservices', color: 'blue' },
     ],
   },
   {
-    category: 'Database / CMS',
+    category: 'Database & Cloud',
     items: [
       { name: 'PostgreSQL', color: 'purple' },
-      { name: 'Strapi', color: 'blue' },
       { name: 'MongoDB', color: 'green' },
-      { name: 'MS SQL Server', color: 'teal' },
       { name: 'MySQL', color: 'yellow' },
+      { name: 'AWS (Amplify, Cognito)', color: 'orange' },
+      { name: 'CI/CD (GitHub Actions)', color: 'teal' },
+    ],
+  },
+  {
+    category: 'ServiceNow',
+    items: [
+      { name: 'ITSM', color: 'blue' },
+      { name: 'ITOM', color: 'green' },
+      { name: 'SecOps', color: 'red' },
+      { name: 'GRC / IRM', color: 'purple' },
+      { name: 'Custom Applications', color: 'orange' },
     ],
   },
 ];
