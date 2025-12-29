@@ -41,12 +41,11 @@ const Technologies = () => {
         </Box>
 
         <Box py={20}>
-          <SimpleGrid columns={{ base: 1, md: 3 }} gap={{ base: 16, md: 8 }}>
+          <SimpleGrid columns={{ base: 1, md: 2 }} gap={{ base: 16, md: 8 }}>
             {technologiesData.map((section, idx) => (
               <Box key={idx} rounded='lg' shadow='md' bg={bg}>
                 <Flex
                   direction='column'
-                  align='center'
                   p={6}
                   borderBottomWidth='1px'
                   borderColor={borderColor}>
