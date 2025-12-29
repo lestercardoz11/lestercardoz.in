@@ -74,7 +74,7 @@ const Feature = ({
           <Flex w='100%' justify={'space-between'}>
             <Flex>
               {code && (
-                <Link href={code} target="_blank" rel="noopener noreferrer">
+                <Link href={code} target='_blank' rel='noopener noreferrer'>
                   <Box
                     display={'flex'}
                     color='gray.500'
@@ -90,7 +90,11 @@ const Feature = ({
                 </Link>
               )}
               {homepage && (
-                <Link href={homepage} marginStart={2} target="_blank" rel="noopener noreferrer">
+                <Link
+                  href={homepage}
+                  marginStart={2}
+                  target='_blank'
+                  rel='noopener noreferrer'>
                   <Box
                     display={'flex'}
                     color='gray.500'
@@ -132,10 +136,11 @@ const AllProjects = () => {
         </Alert>
       </div>
     );
+
   if (!data)
     return (
       <Box w={'auto'}>
-        <Box w='100%' px={{ base: 10, lg: 4 }} mx='auto' textAlign='center'>
+        <Box>
           <Text mb={2} fontSize='5xl' fontWeight='bold' lineHeight='tight'>
             All Projects
           </Text>
