@@ -55,113 +55,62 @@ const Summary = () => {
     );
 
   return (
-    <SimpleGrid
-      columns={{ base: 1, md: 5 }}
-      spacing={0}
-      _after={{
-        bg: 'brand.500',
-        opacity: 0.25,
-        pos: 'absolute',
-        top: 0,
-        left: 0,
-        bottom: 0,
-        right: 0,
-        zIndex: -1,
-        content: '" "',
-      }}>
-      <GridItem colSpan={3}>
-        <Flex direction='column' alignItems='start'>
-          <Heading
-            mb={6}
-            fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
-            fontWeight='bold'
-            color={useColorModeValue('brand.600', 'gray.300')}
-            lineHeight='shorter'>
-            Hey,
-            <br />
-            I'm{' '}
-            <Text
-              display={'inline'}
-              w='full'
-              bgClip='text'
-              bgGradient='linear(to-l, #E15299, #E15299)'
-              fontWeight='extrabold'>
-              Lester Cardoz
-            </Text>
-          </Heading>
-          <SummaryText />
-        </Flex>
-      </GridItem>
-      <GridItem colSpan={2}>
-        <Flex justify={'flex-end'}>
-          <Box
-            position={'relative'}
-            maxW={'320px'}
-            w={'full'}
-            bg={useColorModeValue('gray.100', 'gray.900')}
-            shadow={'lg'}
-            rounded={'lg'}
-            p={6}
-            textAlign={'center'}>
-            <Avatar
-              size={'2xl'}
-              src={'/images/profile-img.png'}
-              alt={'Avatar Alt'}
-              loading='eager'
-              mb={4}
-            />
-            <Heading fontSize={'2xl'} fontFamily={'body'}>
-              Lester Cardoz
-            </Heading>
-            <Text fontWeight={600} color={'gray.500'} mb={4}>
-              Technical Lead Manager
-            </Text>
-
-            <Stack
-              align={'flex-start'}
-              justify={'flex-start'}
-              direction={'column'}
-              textAlign={'left'}
-              mt={6}>
+    <Flex direction={'column'}>
+      <SimpleGrid columns={{ base: 1, md: 5 }} spacing={10}>
+        <GridItem colSpan={2}>
+          <Flex direction='column' h='full'>
+            <Heading
+              mb={6}
+              fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}
+              fontWeight='bold'
+              color={useColorModeValue('brand.600', 'gray.300')}
+              lineHeight='shorter'>
+              Hey,
+              <br />
+              I'm{' '}
               <Text
-                fontSize='sm'
-                fontWeight={600}
-                color={'gray.500'}
-                textTransform='uppercase'>
-                Currently
+                display={'inline'}
+                w='full'
+                bgClip='text'
+                bgGradient='linear(to-l, #E15299, #E15299)'
+                fontWeight='extrabold'>
+                Lester Cardoz
               </Text>
-              {data && recentlyPlayed && !isLoading ? (
-                <List spacing={3} w={'full'}>
-                  <ListItem
-                    p={2}
-                    border={'solid 2px transparent'}
-                    rounded={'md'}
-                    cursor={'pointer'}
-                    _hover={{ color: '#48BB78' }}>
-                    <Link
-                      href='https://goo.gl/maps/GChA92K1R4mSGEWH9'
-                      target='_blank'
-                      _hover={{ textDecoration: 'none' }}
-                      _focus={{ outline: 'none' }}>
-                      <Flex direction={'row'} align={'center'}>
-                        <ListIcon
-                          w={6}
-                          h={6}
-                          as={IoPinOutline}
-                          color='green.400'
-                        />
-                        <Flex direction={'column'} ml={2} fontSize={'md'}>
-                          Mumbai
-                          <Text
-                            fontSize={'xs'}
-                            color={useColorModeValue('gray.800', 'white')}>
-                            India
-                          </Text>
-                        </Flex>
-                      </Flex>
-                    </Link>
-                  </ListItem>
-                  {(data.title || recentlyPlayed.title) && (
+            </Heading>
+            <Box
+              position={'relative'}
+              w={'full'}
+              bg={useColorModeValue('gray.100', 'gray.900')}
+              shadow={'lg'}
+              rounded={'lg'}
+              p={6}
+              textAlign={'center'}>
+              <Avatar
+                size={'2xl'}
+                src={'/images/profile-img.png'}
+                alt={'Avatar Alt'}
+                loading='eager'
+                mb={4}
+              />
+              <Text fontWeight={600} color={'gray.500'} mb={4}>
+                Technical Lead Manager
+              </Text>
+
+              <Stack
+                align={'flex-start'}
+                justify={'flex-start'}
+                direction={'column'}
+                textAlign={'left'}
+                mt={6}>
+                <Text
+                  fontSize='sm'
+                  fontWeight={600}
+                  color={'gray.500'}
+                  textTransform='uppercase'>
+                  Currently
+                </Text>
+                {data && recentlyPlayed && !isLoading ? (
+                  <List spacing={3} w={'full'}>
                     <ListItem
                       p={2}
                       border={'solid 2px transparent'}
@@ -169,9 +118,7 @@ const Summary = () => {
                       cursor={'pointer'}
                       _hover={{ color: '#48BB78' }}>
                       <Link
-                        href={
-                          data.songUrl ? data.songUrl : recentlyPlayed.songUrl
-                        }
+                        href='https://goo.gl/maps/GChA92K1R4mSGEWH9'
                         target='_blank'
                         _hover={{ textDecoration: 'none' }}
                         _focus={{ outline: 'none' }}>
@@ -179,53 +126,89 @@ const Summary = () => {
                           <ListIcon
                             w={6}
                             h={6}
-                            as={IoMusicalNotesOutline}
+                            as={IoPinOutline}
                             color='green.400'
                           />
                           <Flex direction={'column'} ml={2} fontSize={'md'}>
-                            {data.title ? data.title : recentlyPlayed.title}
+                            Mumbai
                             <Text
                               fontSize={'xs'}
                               color={useColorModeValue('gray.800', 'white')}>
-                              {data.artist
-                                ? data.artist
-                                : recentlyPlayed.artist}
+                              India
                             </Text>
                           </Flex>
                         </Flex>
                       </Link>
                     </ListItem>
-                  )}
-                </List>
-              ) : (
-                <Flex direction={'column'} w={'full'}>
-                  <Box py='2' my='2'>
-                    <Stack>
-                      <Skeleton height='30px' />
-                      <Skeleton height='10px' />
-                    </Stack>
-                  </Box>
-                  <Box py='2' my='2'>
-                    <Stack>
-                      <Skeleton height='30px' />
-                      <Skeleton height='10px' />
-                    </Stack>
-                  </Box>
-                  <Box py='2' my='2'>
-                    <Stack>
-                      <Skeleton height='30px' />
-                      <Skeleton height='10px' />
-                    </Stack>
-                  </Box>
-                </Flex>
-              )}
-            </Stack>
+                    {(data.title || recentlyPlayed.title) && (
+                      <ListItem
+                        p={2}
+                        border={'solid 2px transparent'}
+                        rounded={'md'}
+                        cursor={'pointer'}
+                        _hover={{ color: '#48BB78' }}>
+                        <Link
+                          href={
+                            data.songUrl ? data.songUrl : recentlyPlayed.songUrl
+                          }
+                          target='_blank'
+                          _hover={{ textDecoration: 'none' }}
+                          _focus={{ outline: 'none' }}>
+                          <Flex direction={'row'} align={'center'}>
+                            <ListIcon
+                              w={6}
+                              h={6}
+                              as={IoMusicalNotesOutline}
+                              color='green.400'
+                            />
+                            <Flex direction={'column'} ml={2} fontSize={'md'}>
+                              {data.title ? data.title : recentlyPlayed.title}
+                              <Text
+                                fontSize={'xs'}
+                                color={useColorModeValue('gray.800', 'white')}>
+                                {data.artist
+                                  ? data.artist
+                                  : recentlyPlayed.artist}
+                              </Text>
+                            </Flex>
+                          </Flex>
+                        </Link>
+                      </ListItem>
+                    )}
+                  </List>
+                ) : (
+                  <Flex direction={'column'} w={'full'}>
+                    <Box py='2' my='2'>
+                      <Stack>
+                        <Skeleton height='30px' />
+                        <Skeleton height='10px' />
+                      </Stack>
+                    </Box>
+                    <Box py='2' my='2'>
+                      <Stack>
+                        <Skeleton height='30px' />
+                        <Skeleton height='10px' />
+                      </Stack>
+                    </Box>
+                    <Box py='2' my='2'>
+                      <Stack>
+                        <Skeleton height='30px' />
+                        <Skeleton height='10px' />
+                      </Stack>
+                    </Box>
+                  </Flex>
+                )}
+              </Stack>
 
-            <Resume />
-          </Box>
-        </Flex>
-      </GridItem>
-    </SimpleGrid>
+              <Resume />
+            </Box>
+          </Flex>
+        </GridItem>
+        <GridItem colSpan={3}>
+          <SummaryText />
+        </GridItem>
+      </SimpleGrid>
+    </Flex>
   );
 };
 

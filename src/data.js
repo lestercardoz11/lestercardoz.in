@@ -3,8 +3,6 @@ import { Text, useColorModeValue, Link, Code } from '@chakra-ui/react';
 export const SummaryText = () => {
   return (
     <Text
-      pr={{ base: 0, md: 16 }}
-      mb={4}
       fontSize={{ base: 'md', md: 'lg' }}
       color={useColorModeValue('brand.600', 'gray.400')}
       letterSpacing='wider'>
