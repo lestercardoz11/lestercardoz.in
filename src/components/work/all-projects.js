@@ -181,12 +181,8 @@ const AllProjects = () => {
 
   return (
     <Box w='100%'>
-      <Box w='100%' px={{ base: 10, lg: 4 }} textAlign='center'>
-        <Text
-          mb={2}
-          fontSize={{ base: '3xl', md: '5xl' }}
-          fontWeight='bold'
-          lineHeight='tight'>
+      <Box>
+        <Text mb={2} fontSize='5xl' fontWeight='bold' lineHeight='tight'>
           All Projects
         </Text>
       </Box>
