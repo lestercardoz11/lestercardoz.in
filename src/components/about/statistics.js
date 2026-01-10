@@ -1,71 +1,18 @@
-import { Box, Flex, Stack, SimpleGrid } from '@chakra-ui/react';
 import {
+  Box,
+  SimpleGrid,
+  Stack,
   Text,
   useColorModeValue,
   Skeleton,
-  Divider,
   Alert,
   AlertIcon,
   AlertTitle,
-  Icon,
 } from '@chakra-ui/react';
 import useSWR from 'swr';
 import { fetcher } from '../../lib/fetcher';
 import { RiUser6Line, RiGitRepositoryFill, RiStarFill } from 'react-icons/ri';
-
-const Feature = (props) => {
-  const { title, tech, icon, color, stat, isLoading } = props;
-  return (
-    <Skeleton isLoaded={!isLoading}>
-      <Box
-        px={2}
-        bg={useColorModeValue('gray.100', 'gray.900')}
-        color={useColorModeValue('gray.600', 'gray.400')}
-        shadow={'md'}
-        rounded={'lg'}>
-        <Box p={2} w={'full'}>
-          <Flex
-            direction={'row'}
-            p={2}
-            fontSize={{ base: 'md', md: 'lg' }}
-            fontWeight={'medium'}>
-            <Box w={'35%'}>
-              <Flex
-                w={14}
-                h={14}
-                bg={`${color}.500`}
-                rounded={'full'}
-                justify={'center'}
-                align={'center'}>
-                <Icon as={icon} w={6} h={6} color='white' />
-              </Flex>
-            </Box>
-            <Flex direction={'column'} w={'65%'}>
-              <Box textAlign={'end'} fontSize={'sm'} letterSpacing={'wider'}>
-                {title}
-              </Box>
-              <Box
-                textAlign={'end'}
-                fontSize={'3xl'}
-                color={useColorModeValue('gray.800', 'white')}>
-                {stat}
-              </Box>
-            </Flex>
-          </Flex>
-          <Divider py={1} />
-          <Box
-            p={2}
-            fontSize={'sm'}
-            fontWeight={'medium'}
-            letterSpacing={'widest'}
-            textTransform={'uppercase'}>
-            {tech}
-          </Box>
-        </Box>
-      </Box>
-    </Skeleton>
-  );
-};
+import StatCard from '../ui/StatCard';
 
 const Statistics = () => {
   const { data, isLoading, error } = useSWR('/api/github-stats', fetcher);
@@ -126,7 +73,7 @@ const Statistics = () => {
         </Box>
         <Box w='full' py={20}>
           <SimpleGrid columns={{ base: 1, md: 3 }} gap={8}>
-            <Feature
+            <StatCard
               title={'Followers'}
               tech={'Github'}
               stat={githubFollowers}
@@ -134,7 +81,7 @@ const Statistics = () => {
               color={'pink'}
               isLoading={isLoading}
             />
-            <Feature
+            <StatCard
               title={'Repositories'}
               tech={'Github'}
               stat={githubRepos}
@@ -142,7 +89,7 @@ const Statistics = () => {
               color={'purple'}
               isLoading={isLoading}
             />
-            <Feature
+            <StatCard
               title={'Stars'}
               tech={'Github'}
               stat={githubStars}

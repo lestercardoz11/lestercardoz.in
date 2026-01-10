@@ -19,7 +19,7 @@ import { IoMusicalNotesOutline, IoPinOutline } from 'react-icons/io5';
 import useSWR from 'swr';
 import { fetcher } from '../../lib/fetcher';
 import Resume from './resume';
-import { SummaryText } from 'src/data';
+import { SummaryText } from './SummaryText';
 
 const getRecentlyPlayed = () => {
   const { data, error } = useSWR('/api/recently-played', fetcher);
