@@ -1,26 +1,436 @@
 @import "tailwindcss";
+@import "./styles/hero.css";
+@import "./styles/story.css";
+@import "./styles/visuals.css";
+@import "./styles/pages.css";
 
+/* ------------------------------------------------------------------
+   Tokens. Spurs navy is the screen, lilywhite the ink, and the seven
+   Teletext colours are the accents, one per page.
+------------------------------------------------------------------- */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --navy: #132257;
+  --navy-deep: #0b1538;
+  --navy-up: #1c2f72;
+  --navy-hi: #2a4296;
+  --ink: #ffffff;
+  --ink-soft: #c3cbe6;
+  --red: #ff5a4e;
+  --green: #3ee07f;
+  --yellow: #ffe14d;
+  --cyan: #45e3ff;
+  --magenta: #ff6bd6;
+  --black: #000000;
+
+  --accent: var(--ink);
+
+  /* Large displays zoom the whole set (--z, set in the layout). Viewport units
+     are zoomed with it, so layout uses these corrected units instead. */
+  --z: 1;
+  --vw: calc(1vw / var(--z));
+  --vh: calc(1vh / var(--z));
+
+  --font-txt: var(--font-jersey), "VT323", ui-monospace, monospace;
+  --font-body: var(--font-archivo), system-ui, sans-serif;
+
+  --bezel: clamp(6px, calc(1.1 * var(--vw)), 16px);
+  --gutter: clamp(16px, calc(3 * var(--vw)), 44px);
+
+  --step-ui: clamp(1rem, min(0.95rem + calc(0.6 * var(--vw)), calc(2.6 * var(--vh))), 1.5rem);
+  --step-body: clamp(0.9375rem, min(0.96rem + calc(0.18 * var(--vw)), calc(2.1 * var(--vh))), 1.125rem);
+  --step-h: clamp(1.75rem, min(1.6rem + calc(2.6 * var(--vw)), calc(6.4 * var(--vh))), 4rem);
+  --step-xl: clamp(4.5rem, 2rem + calc(10 * var(--vw)), 12rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+[data-accent="red"] { --accent: var(--red); }
+[data-accent="green"] { --accent: var(--green); }
+[data-accent="yellow"] { --accent: var(--yellow); }
+[data-accent="cyan"] { --accent: var(--cyan); }
+[data-accent="magenta"] { --accent: var(--magenta); }
+[data-accent="ink"] { --accent: var(--ink); }
+
+.c-red { color: var(--red); }
+.c-green { color: var(--green); }
+.c-yellow { color: var(--yellow); }
+.c-cyan { color: var(--cyan); }
+.c-magenta { color: var(--magenta); }
+.c-ink { color: var(--ink); }
+.c-accent { color: var(--accent); }
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html,
+body {
+  height: 100%;
+  margin: 0;
+  background: var(--black);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 100%;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  overflow: hidden;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+:focus-visible {
+  outline: 3px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+img,
+canvas {
+  display: block;
+  max-width: 100%;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: fixed;
+  left: 16px;
+  top: -100px;
+  z-index: 100;
+  padding: 10px 14px;
+  background: var(--yellow);
+  color: var(--navy);
+  font-weight: 700;
+}
+
+.skip-link:focus {
+  top: 16px;
+}
+
+.txt {
+  font-family: var(--font-txt);
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  line-height: 1;
+}
+
+/* ------------------------------------------------------------------
+   The set: a black bezel around a rounded, slightly vignetted screen.
+------------------------------------------------------------------- */
+.crt {
+  position: fixed;
+  inset: 0;
+  zoom: var(--z);
+  padding: var(--bezel);
+  background: var(--black);
+}
+
+.screen {
+  position: relative;
+  height: 100%;
+  border-radius: clamp(10px, calc(2 * var(--vw)), 28px);
+  background: var(--navy);
+  overflow: hidden;
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  isolation: isolate;
+}
+
+/* Scanlines and the glass curvature. Pure texture, never interactive. */
+.screen::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 50;
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgb(0 0 0 / 0) 0,
+      rgb(0 0 0 / 0) 2px,
+      rgb(0 0 0 / 0.16) 3px,
+      rgb(0 0 0 / 0) 4px
+    ),
+    radial-gradient(120% 90% at 50% 50%, rgb(0 0 0 / 0) 62%, rgb(0 0 0 / 0.42) 100%);
+}
+
+.txt-main {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  scrollbar-color: var(--navy-hi) transparent;
+}
+
+/* ------------------------------------------------------------------
+   Header line: page number, service name, date and clock.
+------------------------------------------------------------------- */
+.txt-header {
+  display: flex;
+  align-items: baseline;
+  gap: clamp(10px, calc(2 * var(--vw)), 28px);
+  padding: clamp(8px, min(calc(1.4 * var(--vw)), calc(1.8 * var(--vh))), 16px) var(--gutter) 4px;
+  font-size: var(--step-ui);
+  white-space: nowrap;
+  z-index: 5;
+}
+
+.txt-header .pnum {
+  min-width: 4ch;
+  color: var(--ink);
+}
+
+.txt-header .pnum[data-typing="true"] {
+  color: var(--yellow);
+}
+
+.txt-header .service {
+  color: var(--ink);
+}
+
+.txt-header .service-name {
+  color: var(--cyan);
+}
+
+.txt-header .spacer {
+  flex: 1;
+}
+
+.txt-header .date {
+  color: var(--ink);
+}
+
+.txt-header .clock {
+  color: var(--yellow);
+  min-width: 8ch;
+  text-align: right;
+}
+
+.txt-header .home-link:hover .service-name {
+  color: var(--yellow);
+}
+
+/* ------------------------------------------------------------------
+   Fastext: the coloured keys.
+------------------------------------------------------------------- */
+.fastext {
+  display: flex;
+  align-items: center;
+  gap: clamp(12px, calc(2.4 * var(--vw)), 40px);
+  padding: 4px var(--gutter) clamp(8px, min(calc(1.4 * var(--vw)), calc(1.8 * var(--vh))), 16px);
+  font-size: var(--step-ui);
+  z-index: 5;
+  background: var(--navy);
+}
+
+.fk {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding: 6px 0;
+  transition: transform 140ms var(--ease-out);
+}
+
+.fk:active {
+  transform: translateY(2px);
+}
+
+.fk-chip {
+  width: 0.8em;
+  height: 0.8em;
+  background: currentColor;
+  transition: transform 180ms var(--ease-out);
+}
+
+.fk:hover .fk-chip,
+.fk:focus-visible .fk-chip {
+  transform: scale(1.35);
+}
+
+.fk[aria-current="page"] .fk-label {
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  text-underline-offset: 6px;
+}
+
+.fastext .hint {
+  margin-left: auto;
+  color: var(--ink-soft);
+}
+
+.fastext .hint kbd {
+  font: inherit;
+  color: var(--yellow);
+}
+
+.fk-label {
+  white-space: nowrap;
+}
+
+@media (max-width: 1023px) {
+  .fastext .hint {
+    display: none;
+  }
+}
+
+@media (max-width: 720px) {
+  .txt-header .date {
+    display: none;
+  }
+  .fastext {
+    justify-content: space-between;
+    gap: 6px;
+  }
+  .fk {
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px 0;
+    font-size: 0.95rem;
+  }
+  .band {
+    padding-top: 6px;
+    padding-bottom: 4px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   Page furniture shared by the inner pages.
+------------------------------------------------------------------- */
+.page {
+  position: relative;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* The Teletext banner: a full-width field in the page colour. */
+.band {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 4px 0 0;
+  padding: 10px var(--gutter) 6px;
+  background: var(--accent);
+  color: var(--navy);
+}
+
+.band h1 {
+  margin: 0;
+  font-family: var(--font-txt);
+  font-weight: 400;
+  font-size: var(--step-h);
+  line-height: 0.85;
+  letter-spacing: 0.01em;
+}
+
+.band .band-meta {
+  font-family: var(--font-txt);
+  font-size: var(--step-ui);
+  line-height: 1;
+  padding-bottom: 0.3em;
+  text-align: right;
+}
+
+.prose p {
+  margin: 0 0 1em;
+  max-width: 62ch;
+  font-size: var(--step-body);
+  line-height: 1.55;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  min-height: 48px;
+  padding: 0.55em 1.1em 0.5em;
+  font-family: var(--font-txt);
+  font-size: var(--step-ui);
+  line-height: 1;
+  background: var(--accent);
+  color: var(--navy);
+  transition: transform 140ms var(--ease-out), background-color 160ms var(--ease-out);
+}
+
+.btn:hover {
+  background: var(--ink);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-ghost {
+  background: var(--navy-up);
+  color: var(--ink);
+}
+
+.btn-ghost:hover {
+  background: var(--navy-hi);
+}
+
+.link-u {
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 4px;
+  transition: color 140ms;
+}
+
+.link-u:hover {
+  color: var(--yellow);
+}
+
+/* Static noise flash between pages. */
+.static-flash {
+  position: absolute;
+  inset: 0;
+  z-index: 40;
+  pointer-events: none;
+  opacity: 0;
+  background-size: 160px 160px;
+  image-rendering: pixelated;
+  mix-blend-mode: screen;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+  }
+  .static-flash {
+    display: none;
+  }
 }

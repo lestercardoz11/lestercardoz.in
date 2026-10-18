@@ -12,6 +12,10 @@ const eslintConfig = defineConfig([
     "out/**",
     "build/**",
     "next-env.d.ts",
+    // Agent skills and their working files, not part of the site.
+    ".agents/**",
+    ".claude/**",
+    ".taste-skill/**",
   ]),
 ]);
 

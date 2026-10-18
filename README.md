@@ -1,36 +1,41 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# LESTERFAX
 
-## Getting Started
+The portfolio of Lester Cardoz, built as a Teletext service. Every section is a numbered page, every career chapter is a subpage, and the O in CARDOZ is a football you can keep up.
 
-First, run the development server:
+| Page | Route | What is there |
+| --- | --- | --- |
+| 100 | `/` | Kick-off: the name, the ball and the index |
+| 200 | `/full-stack` | The full-stack career, six chapters |
+| 300 | `/servicenow` | The ServiceNow career, seven chapters |
+| 400 | `/squad` | Skills as two starting elevens |
+| 500 | `/honours` | Results, degrees and certifications |
+| 600 | `/dressing-room` | How Lester works, and the football |
+| 700 | `/transfer` | Contact and the offer builder |
+
+Type any three-digit page number on a keyboard to jump to it. Arrow keys move between chapters, and chapters deep-link with a hash, for example `/full-stack#opex-genie`.
+
+The site never scrolls on a laptop or larger. Screens above 1600 by 960 zoom the whole set up (see `--z` in `app/layout.tsx`), so 4K shows the same page, bigger. Honours, the dressing room and the transfer desk are one spread on a big screen and become numbered subpages (`components/shell/Subpages.tsx`) when the spread no longer fits; each page sets that breakpoint in `app/styles/pages.css`.
+
+## Run it
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
+pnpm dev      # http://localhost:3000
+pnpm build && pnpm start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Set `NEXT_PUBLIC_SITE_URL` if the site is deployed anywhere other than `https://www.lestercardoz.in`. It feeds the sitemap, robots file and Open Graph URLs.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Where things live
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `lib/content/` holds all the copy: chapters, the squad and the honours. Edit these to change what the site says.
+- `lib/pages.ts` is the page registry, the contact details and the site URL.
+- `components/hero/PixelBall.tsx` draws the football per pixel and runs the keepy-uppy physics.
+- `components/story/` is the chapter engine and one visual per chapter.
+- `components/ui/DitherImage.tsx` dithers the archival photographs into the page colours.
 
-## Learn More
+Built with Next.js 16, React 19, GSAP 3 and Tailwind 4. Motion respects `prefers-reduced-motion`.
 
-To learn more about Next.js, take a look at the following resources:
+## Pictures
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The pictures in `public/pictures/` are AI-generated (Pollinations) and dithered into the page colours at runtime by `components/ui/DitherImage.tsx`. The Memoji is Lester's own. Swap any of them for your own generated images by replacing the file with the same name.

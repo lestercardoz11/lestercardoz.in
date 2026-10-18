@@ -1,0 +1,1195 @@
+/* ------------------------------------------------------------------
+   P400, the squad.
+------------------------------------------------------------------- */
+.squad {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.squad-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: clamp(24px, calc(4 * var(--vw)), 64px);
+  padding: clamp(10px, calc(2.4 * var(--vh)), 32px) var(--gutter) clamp(10px, calc(2.4 * var(--vh)), 32px);
+}
+
+.pitch-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.pitch {
+  position: relative;
+  height: min(calc(66 * var(--vh)), 680px);
+  aspect-ratio: 68 / 92;
+  background: repeating-linear-gradient(to bottom, #0f5a36 0 10%, #13673f 10% 20%);
+}
+
+.pm {
+  position: absolute;
+  pointer-events: none;
+  outline: 3px solid rgb(255 255 255 / 0.55);
+  outline-offset: -3px;
+}
+
+.pm-half {
+  left: 0;
+  right: 0;
+  top: 50%;
+  height: 3px;
+  outline: 0;
+  background: rgb(255 255 255 / 0.55);
+}
+
+.pm-circle {
+  left: 50%;
+  top: 50%;
+  width: 26%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.pm-box {
+  left: 20%;
+  right: 20%;
+  height: 16%;
+}
+
+.pm-box-top {
+  top: 0;
+}
+
+.pm-box-bottom {
+  bottom: 0;
+}
+
+.pm-six {
+  left: 36%;
+  right: 36%;
+  height: 6%;
+}
+
+.pm-six-top {
+  top: 0;
+}
+
+.pm-six-bottom {
+  bottom: 0;
+}
+
+.slot {
+  position: absolute;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  transform: translate(-50%, -50%);
+  min-width: 44px;
+  min-height: 44px;
+}
+
+.shirt {
+  display: grid;
+  place-items: center;
+  width: clamp(36px, calc(3.4 * var(--vw)), 50px);
+  height: clamp(34px, calc(3.2 * var(--vw)), 46px);
+  padding-top: 6px;
+  font-size: clamp(1.1rem, 0.9rem + calc(0.6 * var(--vw)), 1.5rem);
+  background: var(--ink);
+  color: var(--navy);
+  clip-path: polygon(22% 0, 38% 0, 50% 10%, 62% 0, 78% 0, 100% 18%, 88% 38%, 80% 32%, 80% 100%, 20% 100%, 20% 32%, 12% 38%, 0 18%);
+  transition: background-color 140ms, transform 180ms var(--ease-out);
+}
+
+.slot:hover .shirt {
+  transform: translateY(-3px);
+}
+
+.slot:active .shirt {
+  transform: scale(0.94);
+}
+
+.slot[data-on="true"] .shirt {
+  background: var(--yellow);
+}
+
+.slot-name {
+  padding: 2px 6px 1px;
+  font-size: clamp(0.95rem, 0.8rem + calc(0.35 * var(--vw)), 1.15rem);
+  white-space: nowrap;
+  background: var(--navy-deep);
+  color: var(--ink);
+}
+
+.slot[data-on="true"] .slot-name {
+  color: var(--yellow);
+}
+
+.pitch-ball {
+  position: absolute;
+  z-index: 3;
+  width: 12px;
+  height: 12px;
+  margin: 2px 0 0 18px;
+  background: var(--ink);
+  outline: 3px solid var(--navy);
+  pointer-events: none;
+}
+
+.squad-side {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.8fr);
+  grid-template-rows: auto auto 1fr;
+  grid-template-areas:
+    "switch switch"
+    "profile photo"
+    "bench photo";
+  gap: clamp(16px, calc(2.4 * var(--vw)), 32px);
+  align-content: start;
+}
+
+.formation-switch {
+  grid-area: switch;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.fs-btn {
+  display: inline-flex;
+  align-items: baseline;
+  gap: 0.6em;
+  min-height: 52px;
+  padding: 0.5em 1em 0.4em;
+  font-size: clamp(1.4rem, 1rem + calc(1 * var(--vw)), 2rem);
+  background: var(--navy-up);
+  transition: background-color 140ms, color 140ms, transform 140ms;
+}
+
+.fs-btn:hover {
+  background: var(--navy-hi);
+}
+
+.fs-btn:active {
+  transform: scale(0.97);
+}
+
+.fs-btn[data-on="true"] {
+  background: var(--yellow);
+  color: var(--navy);
+}
+
+.fs-shape {
+  font-size: 0.7em;
+  opacity: 0.8;
+}
+
+.profile-panel {
+  grid-area: profile;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.pp-head {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+}
+
+.pp-shirt {
+  display: grid;
+  place-items: center;
+  width: 96px;
+  height: 88px;
+  padding-top: 10px;
+  font-size: 3.4rem;
+  background: var(--yellow);
+  color: var(--navy);
+  clip-path: polygon(22% 0, 38% 0, 50% 10%, 62% 0, 78% 0, 100% 18%, 88% 38%, 80% 32%, 80% 100%, 20% 100%, 20% 32%, 12% 38%, 0 18%);
+  flex: none;
+}
+
+.pp-name {
+  margin: 0;
+  font-size: clamp(2.25rem, 1.6rem + calc(2 * var(--vw)), 3.5rem);
+  line-height: 0.9;
+}
+
+.pp-pos {
+  margin: 6px 0 0;
+  font-weight: 600;
+  color: var(--yellow);
+}
+
+.pp-plays {
+  margin: 0;
+  max-width: 44ch;
+  font-size: var(--step-body);
+  line-height: 1.5;
+}
+
+.pp-caps,
+.bench-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 1.2rem;
+}
+
+.pp-caps li {
+  padding: 4px 10px 3px;
+  background: var(--navy-up);
+}
+
+.bench {
+  grid-area: bench;
+}
+
+.bench-title {
+  margin: 0 0 10px;
+  font-size: 1.4rem;
+  color: var(--ink-soft);
+}
+
+.bench-list li {
+  padding: 4px 10px 3px;
+  background: var(--navy-deep);
+  color: var(--ink-soft);
+}
+
+.squad-photo {
+  grid-area: photo;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.squad-photo-img {
+  aspect-ratio: 4 / 3;
+  width: 100%;
+}
+
+.squad-photo figcaption {
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+@media (max-width: 1100px) {
+  .squad-side {
+    grid-template-columns: 1fr;
+    grid-template-areas: "switch" "profile" "bench";
+  }
+  .squad-photo {
+    display: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .squad-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  /* The switch goes above the pitch, and the profile right under it, so a tap shows its answer. */
+  .squad-side {
+    display: contents;
+  }
+  .formation-switch {
+    order: -1;
+  }
+  .fs-btn {
+    min-height: 44px;
+    font-size: 1.25rem;
+  }
+  .pp-shirt {
+    width: 64px;
+    height: 58px;
+    padding-top: 6px;
+    font-size: 2.2rem;
+  }
+  .pp-name {
+    font-size: 2rem;
+  }
+  .pitch {
+    height: auto;
+    width: min(100%, calc(46 * var(--vh) * 68 / 92));
+  }
+  .slot-name {
+    font-size: 0.85rem;
+    padding: 1px 4px;
+  }
+}
+
+/* ------------------------------------------------------------------
+   P500, honours: a results page and a trophy cabinet.
+------------------------------------------------------------------- */
+.honours-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(24px, calc(4 * var(--vw)), 64px);
+  padding: clamp(10px, calc(2.4 * var(--vh)), 32px) var(--gutter) clamp(10px, calc(2.4 * var(--vh)), 32px);
+}
+
+.sec-title {
+  margin: 0 0 14px;
+  font-family: var(--font-txt);
+  font-weight: 400;
+  font-size: clamp(1.5rem, min(1.3rem + calc(1.2 * var(--vw)), calc(4 * var(--vh))), 2.5rem);
+  line-height: 1;
+}
+
+.results {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.result {
+  display: grid;
+  grid-template-columns: 5.6em minmax(0, 1fr) auto;
+  align-items: baseline;
+  gap: 16px;
+  padding: clamp(6px, calc(1.2 * var(--vh)), 10px) 14px clamp(5px, calc(1 * var(--vh)), 8px);
+}
+
+.result:nth-child(odd) {
+  background: var(--navy-up);
+}
+
+.result-num {
+  font-size: clamp(1.6rem, min(1.4rem + calc(1.4 * var(--vw)), calc(4.4 * var(--vh))), 2.75rem);
+  line-height: 0.9;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.result-label {
+  font-size: var(--step-body);
+  line-height: 1.3;
+}
+
+.result-where {
+  font-size: 1.2rem;
+  color: var(--cyan);
+  text-align: right;
+}
+
+.cabinet {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.honour {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 14px;
+  background: var(--navy-deep);
+}
+
+.honour-art {
+  height: 40px;
+}
+
+.honour-year {
+  font-size: 1.15rem;
+  color: var(--accent);
+}
+
+.honour-title {
+  margin: 0;
+  font-family: var(--font-txt);
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 0.95;
+}
+
+.honour-detail {
+  margin: 0;
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  color: var(--ink-soft);
+}
+
+
+
+
+/* ------------------------------------------------------------------
+   P600, the dressing room.
+------------------------------------------------------------------- */
+.dressing {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.8fr) minmax(0, 1.2fr) minmax(0, 0.9fr);
+  gap: clamp(24px, calc(3.4 * var(--vw)), 56px);
+  padding: clamp(10px, calc(2.4 * var(--vh)), 32px) var(--gutter) clamp(10px, calc(2.4 * var(--vh)), 32px);
+  align-items: start;
+}
+
+/* The sticker: tap to turn it over. */
+.sticker {
+  perspective: 1200px;
+  display: block;
+  width: min(100%, 340px, calc(56 * var(--vh) * 5 / 7));
+  aspect-ratio: 5 / 7;
+  cursor: pointer;
+  text-align: left;
+  /* The back of the card sizes its text to the card, whatever size the card is. */
+  container-type: size;
+}
+
+.sticker-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+}
+
+.sticker-face {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 3.6cqw;
+  background: var(--ink);
+  color: var(--navy);
+}
+
+.sticker-back {
+  transform: rotateY(180deg);
+  background: var(--yellow);
+  padding: 5.5cqw;
+  gap: 2.4cqh;
+  overflow: hidden;
+}
+
+.sticker-photo {
+  flex: 1;
+  width: 100%;
+}
+
+.sticker-name {
+  margin: 10px 0 0;
+  font-family: var(--font-txt);
+  font-size: 11cqw;
+  line-height: 0.85;
+}
+
+.sticker-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+  margin-top: 6px;
+  font-family: var(--font-txt);
+  font-size: 5.2cqw;
+}
+
+.sticker-back h3 {
+  margin: 0;
+  font-family: var(--font-txt);
+  font-weight: 400;
+  font-size: 9.5cqw;
+  line-height: 0.9;
+}
+
+.sticker-back dl {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 1.4cqh 3.5cqw;
+  margin: 0;
+  font-size: 4.4cqw;
+  line-height: 1.25;
+}
+
+.sticker-back dt {
+  font-family: var(--font-txt);
+  font-size: 5.4cqw;
+}
+
+.sticker-back dd {
+  margin: 0;
+}
+
+.sticker-cockerel {
+  height: 13cqh;
+  margin-top: auto;
+  align-self: flex-end;
+}
+
+.sticker-hint {
+  margin-top: 10px;
+  font-family: var(--font-txt);
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+}
+
+.talk {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.talk li {
+  font-family: var(--font-txt);
+  font-size: clamp(1.5rem, min(1.1rem + calc(1.4 * var(--vw)), calc(4.6 * var(--vh))), 2.6rem);
+  line-height: 0.95;
+}
+
+.talk li:nth-child(2n) {
+  color: var(--yellow);
+}
+
+.routine-title {
+  margin-top: clamp(16px, calc(3.4 * var(--vh)), 32px);
+}
+
+.routine {
+  margin: clamp(10px, calc(2 * var(--vh)), 20px) 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: step;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.routine li {
+  counter-increment: step;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: clamp(8px, calc(1.4 * var(--vh)), 12px);
+  background: var(--navy-up);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.routine li::before {
+  content: counter(step);
+  font-family: var(--font-txt);
+  font-size: 2rem;
+  line-height: 0.8;
+  color: var(--yellow);
+}
+
+.dr-note {
+  margin: 22px 0 0;
+  max-width: 54ch;
+  font-size: var(--step-body);
+  line-height: 1.55;
+}
+
+.keeper {
+  margin: 0;
+}
+
+.keeper-img {
+  aspect-ratio: 4 / 3.6;
+  width: 100%;
+  max-height: calc(40 * var(--vh));
+}
+
+.keeper figcaption {
+  margin-top: 8px;
+  font-size: 0.8125rem;
+  color: var(--ink-soft);
+}
+
+.terrace {
+  margin: 18px 0 0;
+  font-size: var(--step-body);
+  line-height: 1.55;
+}
+
+.motto {
+  margin: 14px 0 0;
+  font-family: var(--font-txt);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--yellow);
+}
+
+/* ------------------------------------------------------------------
+   P700, the transfer desk.
+------------------------------------------------------------------- */
+.transfer {
+  flex: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(24px, calc(4 * var(--vw)), 64px);
+  padding: clamp(10px, calc(2.4 * var(--vh)), 32px) var(--gutter) clamp(10px, calc(2.4 * var(--vh)), 32px);
+}
+
+.free {
+  margin: 0;
+  font-family: var(--font-txt);
+  font-weight: 400;
+  font-size: clamp(2.5rem, min(1.6rem + calc(4.4 * var(--vw)), calc(9.5 * var(--vh))), 6.5rem);
+  line-height: 0.82;
+}
+
+.seeking-lede {
+  margin: clamp(10px, calc(2 * var(--vh)), 18px) 0 0;
+  max-width: 34ch;
+  font-size: clamp(1.125rem, min(1rem + calc(0.6 * var(--vw)), calc(2.8 * var(--vh))), 1.5rem);
+  line-height: 1.3;
+  color: var(--yellow);
+}
+
+.facts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin: clamp(12px, calc(2.6 * var(--vh)), 24px) 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.facts li {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: clamp(8px, calc(1.4 * var(--vh)), 12px) 14px;
+  background: var(--navy-up);
+}
+
+.facts .txt {
+  font-size: 1.6rem;
+  color: var(--accent);
+}
+
+.facts span:last-child {
+  font-size: 0.9375rem;
+  line-height: 1.35;
+}
+
+.seeking {
+  margin: clamp(12px, calc(2.4 * var(--vh)), 22px) 0 0;
+  font-size: var(--step-body);
+  line-height: 1.55;
+  max-width: 56ch;
+}
+
+.contact-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: clamp(12px, calc(2.4 * var(--vh)), 22px);
+}
+
+.offer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.offer-form {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(8px, calc(1.6 * var(--vh)), 14px);
+  padding: clamp(16px, calc(2 * var(--vw)), 24px);
+  background: var(--navy-deep);
+}
+
+/* Email and company share a row; the message spans it. */
+.offer-fields {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(8px, calc(1.6 * var(--vh)), 14px) 12px;
+}
+
+.offer-fields label:has(textarea) {
+  grid-column: 1 / -1;
+}
+
+.offer-form legend,
+.offer-form label > span {
+  display: block;
+  margin-bottom: 8px;
+  font-family: var(--font-txt);
+  font-size: 1.3rem;
+}
+
+.offer-form fieldset {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.role-chip {
+  min-height: 40px;
+  padding: 6px 12px 5px;
+  font-family: var(--font-txt);
+  font-size: 1.15rem;
+  background: var(--navy-up);
+  transition: background-color 120ms, color 120ms, transform 120ms;
+}
+
+.role-chip:hover {
+  background: var(--navy-hi);
+}
+
+.role-chip:active {
+  transform: scale(0.96);
+}
+
+.role-chip[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--navy);
+}
+
+.offer-form input,
+.offer-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 1rem;
+  color: var(--ink);
+  background: var(--navy-up);
+  border: 0;
+  border-radius: 0;
+}
+
+.offer-form textarea {
+  min-height: 64px;
+  resize: vertical;
+}
+
+.offer-form input::placeholder,
+.offer-form textarea::placeholder {
+  color: var(--ink-soft);
+}
+
+.offer-form input:focus-visible,
+.offer-form textarea:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 0;
+}
+
+.telex {
+  margin: 0;
+  padding: 14px 16px;
+  font-family: var(--font-txt);
+  font-size: 1.3rem;
+  line-height: 1.15;
+  background: var(--black);
+  color: var(--green);
+  min-height: 5.8em;
+  white-space: pre-wrap;
+}
+
+.telex .c-yellow {
+  color: var(--yellow);
+}
+
+/* Only bots fill this in. */
+.offer-trap {
+  position: absolute;
+  left: -9999px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+
+.offer-send {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 16px;
+}
+
+.offer-send .btn[disabled] {
+  opacity: 0.7;
+  cursor: progress;
+}
+
+.offer-status {
+  margin: 0;
+  font-size: 0.9375rem;
+  color: var(--ink-soft);
+}
+
+.offer-status:empty {
+  display: none;
+}
+
+.offer-status a {
+  color: var(--ink);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+
+
+
+/* ------------------------------------------------------------------
+   404: page not in service.
+------------------------------------------------------------------- */
+.lost {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 18px;
+  padding: var(--gutter);
+}
+
+.lost-num {
+  margin: 0;
+  font-family: var(--font-txt);
+  font-size: clamp(6rem, 3rem + calc(14 * var(--vw)), 16rem);
+  line-height: 0.75;
+  color: var(--red);
+}
+
+.lost p {
+  margin: 0;
+  max-width: 44ch;
+  font-size: var(--step-body);
+  line-height: 1.5;
+}
+
+/* ------------------------------------------------------------------
+   Subpages. A page is one spread while it fits the screen; below each
+   page's breakpoint it becomes numbered subpages, one panel at a time.
+------------------------------------------------------------------- */
+.subpages > .subtabs {
+  display: none;
+}
+
+.subtabs {
+  grid-column: 1 / -1;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.subtab {
+  min-height: 44px;
+  padding: 0.35em 0.9em 0.25em;
+  font-size: var(--step-ui);
+  background: var(--navy-up);
+  color: var(--ink-soft);
+  transition: background-color 140ms, color 140ms, transform 120ms var(--ease-out);
+}
+
+.subtab:hover {
+  color: var(--ink);
+  background: var(--navy-hi);
+}
+
+.subtab:active {
+  transform: scale(0.97);
+}
+
+.subtab[aria-pressed="true"] {
+  background: var(--accent);
+  color: var(--navy);
+}
+
+.subtab-num {
+  opacity: 0.7;
+}
+
+.sp-next {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  margin-left: auto;
+  min-height: 44px;
+  font-size: var(--step-ui);
+  color: var(--accent);
+  transition: color 140ms, transform 120ms var(--ease-out);
+}
+
+.sp-next:hover {
+  color: var(--ink);
+}
+
+.sp-next:active {
+  transform: scale(0.97);
+}
+
+/* The shared shape of a paged page. Each page opts in below. */
+@media (max-width: 1279px), (max-height: 819px) {
+  .dressing > .subtabs {
+    display: flex;
+  }
+  .dressing {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    align-items: stretch;
+    gap: clamp(12px, calc(2 * var(--vh)), 20px);
+  }
+  .dressing > .sp-panel[data-on="false"] {
+    display: none;
+  }
+  .dr-col-1 > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .dr-col-1 .sticker {
+    width: min(100%, 340px, calc(52 * var(--vh) * 5 / 7));
+  }
+  .dr-terrace {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(16px, calc(3 * var(--vw)), 40px);
+    align-items: start;
+  }
+  .dr-terrace .keeper-img {
+    max-height: calc(52 * var(--vh));
+  }
+}
+
+@media (max-width: 1279px) and (min-width: 900px), (max-height: 819px) and (min-width: 900px) {
+  .dr-col-2 {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    grid-template-rows: auto auto 1fr;
+    align-content: start;
+    column-gap: clamp(20px, calc(3.6 * var(--vw)), 56px);
+  }
+  .dr-col-2 > :nth-child(1) { grid-area: 1 / 1; }
+  .dr-col-2 > :nth-child(2) { grid-area: 2 / 1; }
+  .dr-col-2 > :nth-child(3) { grid-area: 1 / 2; margin-top: 0; }
+  .dr-col-2 > :nth-child(4) { grid-area: 2 / 2; margin-top: 0; align-self: start; }
+  .dr-col-2 > :nth-child(5) { grid-area: 3 / 2; align-self: start; }
+}
+
+@media (max-width: 1099px), (max-height: 819px) {
+  .honours-grid > .subtabs {
+    display: flex;
+  }
+  .honours-grid {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: clamp(12px, calc(2 * var(--vh)), 20px);
+  }
+  .honours-grid > .sp-panel[data-on="false"] {
+    display: none;
+  }
+  /* The tab already names the panel. */
+  .honours-grid .sec-title {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+}
+
+@media (max-width: 1099px) and (min-width: 760px), (max-height: 819px) and (min-width: 760px) {
+  .honours-grid .cabinet {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1199px), (max-height: 959px) {
+  .transfer > .subtabs {
+    display: flex;
+  }
+  .transfer {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr);
+    gap: clamp(12px, calc(2 * var(--vh)), 20px);
+  }
+  .transfer > .sp-panel[data-on="false"] {
+    display: none;
+  }
+}
+
+@media (max-width: 1199px) and (min-width: 900px), (max-height: 959px) and (min-width: 900px) {
+  .transfer > .sp-panel:not(.offer) {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    grid-template-areas: "free facts" "lede facts" "seeking facts" "contact facts";
+    grid-template-rows: auto auto auto 1fr;
+    column-gap: clamp(20px, calc(3.6 * var(--vw)), 56px);
+    align-content: start;
+  }
+  .transfer > .sp-panel[data-on="false"] {
+    display: none;
+  }
+  .transfer .free { grid-area: free; }
+  .transfer .seeking-lede { grid-area: lede; }
+  .transfer .facts { grid-area: facts; align-self: start; margin-top: 0; }
+  .transfer .seeking { grid-area: seeking; }
+  .transfer .contact-row { grid-area: contact; align-self: start; }
+  .offer-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+    column-gap: 24px;
+  }
+  .offer-form fieldset,
+  .offer-form .telex {
+    grid-column: 1;
+  }
+  .offer-form .offer-fields {
+    grid-column: 2;
+    grid-row: 1;
+    align-content: start;
+  }
+  .offer-form > .offer-send {
+    grid-column: 2;
+    grid-row: 2;
+    align-self: end;
+  }
+}
+
+/* Phones: denser rows, so each subpage is close to one screen. */
+@media (max-width: 600px) {
+  .result {
+    grid-template-columns: 4.6em minmax(0, 1fr);
+    grid-template-rows: auto auto;
+    column-gap: 12px;
+    row-gap: 2px;
+    padding: 6px 10px 5px;
+  }
+  .result-num {
+    grid-row: 1 / span 2;
+    font-size: 1.6rem;
+    align-self: center;
+  }
+  .result-label {
+    font-size: 0.9375rem;
+  }
+  .result-where {
+    font-size: 1rem;
+    text-align: left;
+  }
+  .cabinet {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 6px;
+  }
+  .honour {
+    padding: 8px 10px;
+    gap: 4px;
+  }
+  .honour-art {
+    height: 26px;
+  }
+  .honour-title {
+    font-size: 1.15rem;
+  }
+  .honour-detail {
+    font-size: 0.75rem;
+    line-height: 1.35;
+  }
+  .facts {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .facts .txt {
+    font-size: 1.3rem;
+  }
+  .facts span:last-child {
+    font-size: 0.8125rem;
+  }
+  .contact-row .btn {
+    min-height: 44px;
+    font-size: 1.05rem;
+  }
+  .role-chip {
+    min-height: 36px;
+    font-size: 1rem;
+    padding: 5px 9px 4px;
+  }
+  .telex {
+    font-size: 1.05rem;
+    min-height: 0;
+  }
+  .subtab {
+    font-size: 1.05rem;
+    padding: 0.35em 0.7em 0.25em;
+  }
+  .sp-next {
+    font-size: 1.05rem;
+  }
+  .routine {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .talk li {
+    font-size: 1.3rem;
+  }
+  .routine li {
+    padding: 6px 8px;
+    font-size: 0.8125rem;
+  }
+  .routine li::before {
+    font-size: 1.4rem;
+  }
+  .dr-note {
+    font-size: 0.9375rem;
+    margin-top: 14px;
+  }
+  .free {
+    font-size: 2.5rem;
+  }
+  .seeking {
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  .offer-form {
+    padding: 12px;
+  }
+  .offer-form legend,
+  .offer-form label > span {
+    margin-bottom: 4px;
+    font-size: 1.1rem;
+  }
+  .offer-form input,
+  .offer-form textarea {
+    padding: 10px 12px;
+    font-size: 16px;
+  }
+  .offer-form textarea {
+    min-height: 48px;
+  }
+  .roles {
+    gap: 5px;
+  }
+}
+
+/* A short laptop: the form's two columns need a little less air. */
+@media (max-height: 680px) and (min-width: 900px) {
+  .offer-form {
+    padding: 12px 18px;
+  }
+  .roles {
+    gap: 5px;
+  }
+  .role-chip {
+    min-height: 34px;
+    padding: 4px 10px 3px;
+  }
+  .offer-form textarea {
+    min-height: 48px;
+  }
+  .telex {
+    min-height: 0;
+    padding: 10px 14px;
+  }
+}
