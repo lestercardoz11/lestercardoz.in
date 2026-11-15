@@ -1,20 +1,13 @@
 import type { Metadata, Viewport } from "next";
-import { Archivo, Jersey_10 } from "next/font/google";
-import { Fastext } from "@/components/shell/Fastext";
-import { TeletextHeader } from "@/components/shell/TeletextHeader";
-import { SITE_URL } from "@/lib/pages";
+import { Bricolage_Grotesque } from "next/font/google";
+import { Shell } from "@/components/Shell";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const jersey = Jersey_10({
-  weight: "400",
+const bricolage = Bricolage_Grotesque({
   subsets: ["latin"],
-  variable: "--font-jersey",
-});
-
-const archivo = Archivo({
-  subsets: ["latin"],
-  variable: "--font-archivo",
-  axes: ["wdth"],
+  variable: "--font-bricolage",
+  axes: ["opsz", "wdth"],
 });
 
 export const metadata: Metadata = {
@@ -24,44 +17,38 @@ export const metadata: Metadata = {
     template: "%s | Lester Cardoz",
   },
   description:
-    "Senior software engineer in Berlin. Full-stack products like Opex Genie and Tacnique, and enterprise ServiceNow, told as a Teletext service.",
+    "Senior software engineer and hands-on technical lead in Berlin. Builds SaaS products on Java, Spring Boot, TypeScript, React and AWS, and enterprise ServiceNow.",
   authors: [{ name: "Lester Cardoz" }],
   openGraph: {
     type: "website",
-    siteName: "LESTERFAX",
+    siteName: "Lester Cardoz",
     title: "Lester Cardoz, senior software engineer in Berlin",
-    description: "Full-stack and ServiceNow, one Teletext page at a time.",
+    description: "Products from an empty repo, backends that read 5M+ bill pages, and a team of 15+ engineers.",
     locale: "en_GB",
   },
   twitter: { card: "summary_large_image" },
 };
 
 export const viewport: Viewport = {
-  themeColor: "#000000",
+  themeColor: "#f4f5f8",
 };
 
-// Scale the set up on screens larger than 1600 by 960, so a 4K display shows the same page, bigger.
-const SCALE = `(function(){var d=document.documentElement;function f(){var z=Math.max(1,Math.min(innerWidth/1600,innerHeight/960));d.style.setProperty("--z",z.toFixed(3))}f();addEventListener("resize",f)})()`;
+// Runs before first paint. It marks the page as scripted, so entrances can
+// start hidden without a flash, and it restores the chosen version of the site
+// (full stack or ServiceNow). A link with ?track=servicenow chooses it.
+const BOOT = `(function(){var d=document.documentElement;d.classList.add("js");try{var t=new URLSearchParams(location.search).get("track");if(t==="servicenow"||t==="fullstack")localStorage.setItem("track",t);d.dataset.track=localStorage.getItem("track")==="servicenow"?"servicenow":"fullstack"}catch(e){d.dataset.track="fullstack"}})()`;
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="en" className={`${jersey.variable} ${archivo.variable}`} suppressHydrationWarning>
+    <html lang="en" className={bricolage.variable} suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: SCALE }} />
+        <script dangerouslySetInnerHTML={{ __html: BOOT }} />
       </head>
       <body>
-        <a href="#main" className="skip-link">
+        <a href="#main" className="skip">
           Skip to content
         </a>
-        <div className="crt">
-          <div className="screen">
-            <TeletextHeader />
-            <main className="txt-main" id="main" tabIndex={-1}>
-              {children}
-            </main>
-            <Fastext />
-          </div>
-        </div>
+        <Shell>{children}</Shell>
       </body>
     </html>
   );

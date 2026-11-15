@@ -1,5 +1,10 @@
-import { Hero } from "@/components/hero/Hero";
+import { Hero } from "@/components/Hero";
+import { View } from "@/components/View";
 
 export default function Home() {
-  return <Hero />;
+  return (
+    <View className="mid">
+      <Hero />
+    </View>
+  );
 }

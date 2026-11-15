@@ -1,41 +1,48 @@
-# LESTERFAX
+# lestercardoz.in
 
-The portfolio of Lester Cardoz, built as a Teletext service. Every section is a numbered page, every career chapter is a subpage, and the O in CARDOZ is a football you can keep up.
+The portfolio of Lester Cardoz, senior software engineer in Berlin. One screen per section, a dock to move between them, and click-through steps instead of scrolling.
 
-| Page | Route | What is there |
+| Key | Route | What is there |
 | --- | --- | --- |
-| 100 | `/` | Kick-off: the name, the ball and the index |
-| 200 | `/full-stack` | The full-stack career, six chapters |
-| 300 | `/servicenow` | The ServiceNow career, seven chapters |
-| 400 | `/squad` | Skills as two starting elevens |
-| 500 | `/honours` | Results, degrees and certifications |
-| 600 | `/dressing-room` | How Lester works, and the football |
-| 700 | `/transfer` | Contact and the offer builder |
+| 1 | `/` | A sentence that finishes several different ways. Click the highlight to change it |
+| 2 | `/work` | The work for the chosen version, as cards |
+| | `/work/[slug]` | One project in three or four steps, each with an animated picture |
+| 3 | `/skills` | Skill areas for the chosen version, strongest first, linked to the work that used them |
+| 4 | `/about` | A clickable timeline, how Lester works, and credentials. `/about#how` opens the second tab |
+| 5 | `/contact` | Copy the email, or send a message through the form |
 
-Type any three-digit page number on a keyboard to jump to it. Arrow keys move between chapters, and chapters deep-link with a hash, for example `/full-stack#opex-genie`.
+The switch in the header chooses between two versions of the whole site, **Full stack** and **ServiceNow**. Each has its own home sentence, work, skills and accent colour. The choice is remembered, and a link can set it: `https://www.lestercardoz.in/?track=servicenow` opens the ServiceNow version, `?track=fullstack` the other. Opening a project from the other version switches to it.
 
-The site never scrolls on a laptop or larger. Screens above 1600 by 960 zoom the whole set up (see `--z` in `app/layout.tsx`), so 4K shows the same page, bigger. Honours, the dressing room and the transfer desk are one spread on a big screen and become numbered subpages (`components/shell/Subpages.tsx`) when the spread no longer fits; each page sets that breakpoint in `app/styles/pages.css`.
+Number keys 1 to 5 change section. Arrow keys move between steps in a project and between stops on the timeline. Escape leaves a project.
+
+On a laptop or larger (1280 by 640 and up) no page scrolls. On a phone the same content stacks and scrolls a little.
 
 ## Run it
 
 ```bash
 pnpm install
-pnpm dev      # http://localhost:3000
-pnpm build && pnpm start
+pnpm dev                       # http://localhost:3000
+pnpm lint && pnpm build
+pnpm start -p 3100             # then, in another terminal:
+pnpm shots                     # screenshots and layout checks into .shots/
 ```
 
-Set `NEXT_PUBLIC_SITE_URL` if the site is deployed anywhere other than `https://www.lestercardoz.in`. It feeds the sitemap, robots file and Open Graph URLs.
+Environment variables, all optional:
+
+- `NEXT_PUBLIC_SITE_URL` if the site is deployed anywhere other than `https://www.lestercardoz.in`. It feeds the sitemap, robots file and Open Graph URLs.
+- `RESEND_API_KEY` to make the contact form send email. Without it the form says so and points to the email address.
+- `CONTACT_TO` and `CONTACT_FROM` to change where the form delivers and what it sends as.
 
 ## Where things live
 
-- `lib/content/` holds all the copy: chapters, the squad and the honours. Edit these to change what the site says.
-- `lib/pages.ts` is the page registry, the contact details and the site URL.
-- `components/hero/PixelBall.tsx` draws the football per pixel and runs the keepy-uppy physics.
-- `components/story/` is the chapter engine and one visual per chapter.
-- `components/ui/DitherImage.tsx` dithers the archival photographs into the page colours.
+- `lib/content.ts` holds every word and number on the site. Edit this to change what the site says.
+- `lib/site.ts` holds the navigation, the contact links and the site URL.
+- `lib/track.ts` holds the full stack or ServiceNow choice.
+- `components/Shell.tsx` is the header, the dock, the exit transition and the number keys.
+- `components/case/Visuals.tsx` holds the animated pictures: the bill formats, the pipeline, the batch-write race, the resume extraction and the candidate matching.
+- `app/globals.css` holds the design tokens and all styles, in page order.
+- `CLAUDE.md` and `.claude/agents/` describe how the work is split between a product owner and UX, software and QA leads when building with Claude Code.
 
-Built with Next.js 16, React 19, GSAP 3 and Tailwind 4. Motion respects `prefers-reduced-motion`.
+Built with Next.js 16, React 19 and GSAP 3, with plain CSS. Motion respects `prefers-reduced-motion`.
 
-## Pictures
-
-The pictures in `public/pictures/` are AI-generated (Pollinations) and dithered into the page colours at runtime by `components/ui/DitherImage.tsx`. The Memoji is Lester's own. Swap any of them for your own generated images by replacing the file with the same name.
+The earlier Teletext version of this site is on the `master` branch.
