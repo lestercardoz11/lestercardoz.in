@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Bricolage_Grotesque } from "next/font/google";
 import { Shell } from "@/components/Shell";
-import { SITE_URL } from "@/lib/site";
+import { NAME, OG, SITE_DESCRIPTION, SITE_TITLE, SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const bricolage = Bricolage_Grotesque({
@@ -13,19 +13,12 @@ const bricolage = Bricolage_Grotesque({
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Lester Cardoz, senior software engineer in Berlin",
-    template: "%s • Lester Cardoz",
+    default: SITE_TITLE,
+    template: `%s • ${NAME}`,
   },
-  description:
-    "Senior software engineer and hands-on technical lead in Berlin. Builds SaaS products on Java, Spring Boot, TypeScript, React and AWS, and enterprise ServiceNow.",
-  authors: [{ name: "Lester Cardoz" }],
-  openGraph: {
-    type: "website",
-    siteName: "Lester Cardoz",
-    title: "Lester Cardoz, senior software engineer in Berlin",
-    description: "Products from an empty repo, backends that read 5M+ bill pages, and a team of 15+ engineers.",
-    locale: "en_GB",
-  },
+  description: SITE_DESCRIPTION,
+  authors: [{ name: NAME }],
+  openGraph: { ...OG, title: SITE_TITLE, description: SITE_DESCRIPTION },
   twitter: { card: "summary_large_image" },
 };
 

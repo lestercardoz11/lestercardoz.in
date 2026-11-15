@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { Case } from "@/components/case/Case";
 import { View } from "@/components/View";
 import { PROJECTS, projectBySlug, type Track } from "@/lib/content";
+import { meta } from "@/lib/site";
 
 // Every project is prerendered, so navigation is instant in practice. The
 // address is read before anything streams so that a mistyped one gets a real
@@ -15,7 +16,7 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: PageProps<"/work/[slug]">): Promise<Metadata> {
   const project = projectBySlug((await params).slug);
-  return project ? { title: project.name, description: `${project.what}. ${project.role}.` } : {};
+  return project ? meta(`/work/${project.slug}`, `${project.what}. ${project.role}.`, project.name) : {};
 }
 
 export default async function CasePage({ params }: PageProps<"/work/[slug]">) {
