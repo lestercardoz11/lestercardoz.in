@@ -1,19 +1,20 @@
-import Link from "next/link";
-import { Reveal } from "@/components/shell/Reveal";
+import { TLink } from "@/components/Shell";
+import { View } from "@/components/View";
 
 export default function NotFound() {
   return (
-    <div className="lost">
-      <p className="lost-num" data-reveal>
-        404
-      </p>
-      <p data-reveal>This page is not in service. Teletext would make you wait for it to come round again. You can skip that.</p>
-      <div style={{ display: "flex", gap: 12, flexWrap: "wrap" }} data-reveal>
-        <Link href="/" className="btn" data-accent="yellow">
-          Back to the index, page 100
-        </Link>
+    <View className="mid">
+      <div className="lost">
+        <h1 data-in>That page does not exist.</h1>
+        <p className="lede" data-in>
+          The link may be old. Everything on this site is one click from the start.
+        </p>
+        <div data-in>
+          <TLink href="/" className="btn btn-solid">
+            Go to the start
+          </TLink>
+        </div>
       </div>
-      <Reveal />
-    </div>
+    </View>
   );
 }
