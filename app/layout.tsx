@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: "Lester Cardoz, senior software engineer in Berlin",
-    template: "%s | Lester Cardoz",
+    template: "%s • Lester Cardoz",
   },
   description:
     "Senior software engineer and hands-on technical lead in Berlin. Builds SaaS products on Java, Spring Boot, TypeScript, React and AWS, and enterprise ServiceNow.",
